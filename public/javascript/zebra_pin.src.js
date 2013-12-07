@@ -6,8 +6,13 @@
  *  visible even if the user scrolls the page. This type of elements are also refered to as "fixed position elements"
  *  or "sticky elements".
  *
+ *  You can use it in your projects to create sticky sidebars, sticky navigation, sticky headers and footers, or anything
+ *  else you feel the need to make it stick to the page while the user scrolls.
+ *
  *  You can have "hard" pinned elements (elements are pinned to their initial position and stay there), elements that
  *  become pinned only when the user scrolls to them, pinned elements that move only inside their parent element.
+ *
+ *  When elements become pinned a CSS class will be added to them, as specified by the plugin's "class_name" property.
  *
  *  Also, custom events are fired when elements are pinned/unpinned giving you even more power for customizing the result.
  *
