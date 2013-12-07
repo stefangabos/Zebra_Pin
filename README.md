@@ -2,13 +2,19 @@
 
 ####A lightweight jQuery plugin for pinning any element to the page or to a container element
 
-Zebra_Pin is a lightweight (around 2KB minified) and adaptive jQuery plugin for pinning any element to the page or to a container element, so that the element stays visible even if the user scrolls the page. This type of elements are also referred to as "fixed position elements" or "sticky elements".
+Zebra_Pin is a lightweight (around 2KB minified) and adaptive (things work as expected when you manually resize the browser window) jQuery plugin for pinning elements to the page or to a container element, so that the element stays visible even if the user scrolls the page. This type of elements are also refered to as "fixed position elements" or "sticky elements".
 
 You can use it in your projects to create sticky sidebars, sticky navigation, sticky headers and footers, or anything else you feel the need to make it stick to the page while the user scrolls.
 
+You can have "hard" pinned elements (elements are pinned to their initial position and stay there), elements that become pinned only when the user scrolls to them, pinned elements that move only inside their parent element.
+
 When elements become pinned a CSS class will be added to them, as specified by the plugin's "class_name" property.
 
+Also, custom events are fired when elements are pinned/unpinned giving you even more power for customizing the result.
+
 Note that this plugin will alter the target element(s) "position" property to "absolute" and/or "fixed", depending on the situation, so before calling the plugin make sure that this change will not affect your page's layout.
+
+Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 7+)
 
 ##Features
 
