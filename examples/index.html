@@ -1,0 +1,146 @@
+<!doctype html>
+
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+
+        <title>Zebra_Pin examples</title>
+
+        <link rel="stylesheet" href="public/css/normalize.css" type="text/css">
+        <link rel="stylesheet" href="public/css/style.css" type="text/css">
+        <link type="text/css" rel="stylesheet" href="libraries/syntaxhighlighter/public/css/shCoreDefault.css">
+
+        <script type="text/javascript" src="libraries/syntaxhighlighter/public/javascript/XRegExp.js"></script>
+        <script type="text/javascript" src="libraries/syntaxhighlighter/public/javascript/shCore.js"></script>
+        <script type="text/javascript" src="libraries/syntaxhighlighter/public/javascript/shBrushJScript.js"></script>
+        <script type="text/javascript" src="libraries/syntaxhighlighter/public/javascript/shBrushXml.js"></script>
+        <script type="text/javascript" src="libraries/syntaxhighlighter/public/javascript/shBrushCSS.js"></script>
+
+        <script type="text/javascript">
+            SyntaxHighlighter.defaults['toolbar'] = false;
+            SyntaxHighlighter.all();
+        </script>
+
+    </head>
+
+    <body>
+
+        <div class="main-wrapper">
+
+            <h3>Zebra_Pin Demos</h3>
+
+            <div class="outer-container left">
+                <div class="pin-container pin1-container">
+                    <div class="pin" id="pin1">
+                        <h4>Pin #1</h4>
+                        I become pinned when I am at 10px from the window's top *and* I am constrained to my parent element's height.
+                    </div>
+                    &nbsp;
+                </div>
+                <button>Toggle height</button>
+
+            </div>
+
+            <div class="pin-container left">
+                <div class="pin" id="pin2">
+                    <h4>Pin #2</h4>
+                        I become pinned when I am at 10px from the window's top and I'll scroll with the document from that point onwards.
+                </div>
+                &nbsp;
+            </div>
+
+            <div class="pin-container left">
+                <div class="pin" id="pin3">
+                    <h4>Pin #3</h4>
+                    I am "hard" pinned: I am pinned to my initial position, and I stay like that forever.
+                </div>
+                &nbsp;
+            </div>
+
+            <div class="content left">
+
+                <p><strong>Pin #1</strong></p>
+                <pre class="brush:js">
+                var
+
+                    pin = new $.Zebra_Pin($('#pin1'), {
+                        top_spacing: 10,
+                        contain: true
+                    }),
+                    $container = $('.pin1-container'),
+                    additional_height = -100;
+
+                $('button').bind('click', function() {
+                    additional_height = additional_height * -1;
+                    $container.css('height', '+=' + additional_height);
+                    pin.update();
+                });
+                </pre>
+
+                <p><strong>Pin #2</strong></p>
+                <pre class="brush:js">
+                new $.Zebra_Pin($('#pin2'), {
+                    top_spacing: 10
+                });
+                </pre>
+
+                <p><strong>Pin #3</strong></p>
+                <pre class="brush:js">
+                new $.Zebra_Pin($('#pin3'), {
+                    hard: true
+                });
+                </pre>
+
+                Completely leverage other's magnetic technologies without B2C e-commerce. Rapidiously implement backward-compatible portals after empowered imperatives. Globally revolutionize emerging paradigms through multifunctional internal or "organic" sources. Progressively integrate viral internal or "organic" sources rather than parallel action items. Collaboratively empower premium bandwidth without e-business core competencies.
+
+                Energistically repurpose unique data with B2B catalysts for change. Progressively parallel task cost effective services without open-source markets. Conveniently leverage existing functionalized e-tailers with integrated growth strategies. Competently target leading-edge quality vectors for resource sucking e-tailers. Globally seize strategic meta-services and bleeding-edge products.
+
+                Enthusiastically create B2B synergy before accurate data. Synergistically synergize e-business infrastructures after process-centric portals. Progressively benchmark impactful initiatives with alternative collaboration and idea-sharing. Holisticly enable goal-oriented methodologies via effective applications. Credibly engage just in time portals after focused relationships.
+
+                Objectively expedite intuitive methods of empowerment through technically sound deliverables. Authoritatively restore enterprise-wide channels via excellent interfaces. Completely re-engineer diverse relationships vis-a-vis e-business networks. Continually scale mission-critical resources and market positioning growth strategies. Continually impact extensible technologies vis-a-vis client-centered opportunities.
+
+                Collaboratively architect covalent services before economically sound e-business. Dramatically architect highly efficient mindshare and fully researched models. Energistically leverage existing resource sucking "outside the box" thinking after an expanded array of communities. Compellingly actualize fully researched e-commerce rather than installed base functionalities. Compellingly productivate tactical ideas before transparent e-business.
+
+                Enthusiastically disintermediate sustainable outsourcing for vertical channels. Seamlessly procrastinate unique e-markets via enabled solutions. Enthusiastically repurpose state of the art action items whereas user-centric quality vectors. Synergistically transform integrated potentialities after team building data. Compellingly e-enable plug-and-play infomediaries through revolutionary benefits.
+
+                Energistically strategize clicks-and-mortar core competencies with cross-unit niche markets. Intrinsicly underwhelm high-quality outsourcing after excellent total linkage. Uniquely synthesize corporate internal or "organic" sources without maintainable e-business. Compellingly incubate fully tested quality vectors vis-a-vis emerging vortals. Proactively develop reliable functionalities through adaptive functionalities.
+
+                Appropriately seize magnetic testing procedures before compelling channels. Dynamically morph team building ROI before professional opportunities. Assertively recaptiualize emerging channels via progressive results. Competently recaptiualize market positioning innovation without integrated action items. Compellingly repurpose cross-unit growth strategies via proactive e-services.
+
+                Energistically conceptualize cross functional functionalities whereas interoperable benefits. Objectively embrace virtual infrastructures for performance based networks. Rapidiously seize unique services vis-a-vis impactful paradigms. Continually simplify backend materials without global testing procedures. Synergistically morph fully researched total linkage without resource sucking infrastructures.
+
+                Dynamically scale ubiquitous core competencies rather than parallel platforms. Intrinsicly customize interdependent relationships for 24/365 e-markets. Synergistically morph extensive systems for fully tested sources. Proactively myocardinate high standards in e-business before orthogonal relationships. Progressively develop sustainable functionalities with cross-unit functionalities.
+
+                Progressively morph cross-unit bandwidth whereas front-end imperatives. Distinctively envisioneer multimedia based niches after client-based partnerships. Collaboratively unleash best-of-breed manufactured products whereas web-enabled vortals. Completely synergize efficient web services whereas global opportunities. Monotonectally deploy integrated customer service with competitive models.
+
+                Dynamically strategize leading-edge imperatives through enterprise resources. Proactively unleash efficient platforms rather than leveraged expertise. Dynamically conceptualize go forward growth strategies without installed base opportunities. Distinctively productivate team driven imperatives after cutting-edge technology. Appropriately facilitate stand-alone potentialities with resource maximizing products.
+
+                Dynamically enhance progressive data after standards compliant partnerships. Dramatically utilize extensive e-business before efficient human capital. Collaboratively disintermediate world-class imperatives rather than inexpensive applications. Continually morph distinctive convergence for client-focused growth strategies. Compellingly fashion web-enabled meta-services and clicks-and-mortar technology.
+
+                Competently build 2.0 interfaces whereas intermandated methods of empowerment. Dynamically incentivize backward-compatible expertise through an expanded array of total linkage. Phosfluorescently create enterprise-wide testing procedures via cutting-edge manufactured products. Credibly innovate process-centric deliverables without holistic networks. Proactively exploit visionary collaboration and idea-sharing through frictionless supply chains.
+
+                Continually leverage other's user friendly ROI via resource-leveling schemas. Authoritatively engineer integrated methods of empowerment with open-source channels. Dynamically build next-generation experiences without cross functional e-business. Competently optimize empowered experiences through an expanded array of information. Efficiently whiteboard distinctive resources for optimal data.
+
+                Continually parallel task top-line process improvements with exceptional action items. Compellingly plagiarize leading-edge networks without top-line total linkage. Interactively parallel task B2C processes for high-quality catalysts for change. Continually implement parallel core competencies whereas pandemic total linkage. Completely integrate leading-edge process improvements vis-a-vis 2.0 e-services.
+
+                Progressively whiteboard viral vortals rather than standardized e-services. Phosfluorescently plagiarize enterprise-wide benefits rather than process-centric testing procedures. Dramatically mesh team building imperatives and equity invested imperatives. Quickly evisculate standardized quality vectors whereas focused quality vectors. Assertively integrate emerging bandwidth after functionalized web services.
+
+                Proactively parallel task front-end customer service after impactful information. Seamlessly reintermediate covalent deliverables and future-proof results. Appropriately streamline multidisciplinary relationships whereas goal-oriented strategic theme areas. Completely procrastinate principle-centered systems and error-free vortals. Professionally coordinate mission-critical outsourcing through cross-media scenarios.
+
+                Holisticly enhance corporate customer service whereas focused strategic theme areas. Dramatically plagiarize diverse intellectual capital before resource sucking platforms. Enthusiastically redefine fully researched process improvements before low-risk high-yield best practices. Holisticly target sticky data before goal-oriented channels. Competently coordinate interdependent networks via resource-leveling value.
+
+                Monotonectally morph sustainable strategic theme areas rather than installed base content. Collaboratively morph robust meta-services via bleeding-edge process improvements. Intrinsicly embrace ethical deliverables and backward-compatible metrics. Completely pursue team building networks and sustainable catalysts for change. Energistically supply seamless channels vis-a-vis resource sucking collaboration and idea-sharing.
+
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="public/javascript/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="../public/javascript/zebra_pin.js"></script>
+        <script type="text/javascript" src="public/javascript/main.js"></script>
+
+    </body>
+
+</html>
