@@ -1,15 +1,18 @@
 /**
  *  Zebra_Pin
  *
- *  Zebra_Pin is a lightweight (less than 2KB minified) and adaptive jQuery plugin for pinning elements to the page or
- *  to a container element, so that the element stays visible even if the user scrolls the page. This type of elements
- *  are also refered to as "fixed position elements" or "sticky elements".
+ *  Zebra_Pin is a lightweight (around 2KB minified) and adaptive (things work as expected when you manually resize the
+ *  browser window) jQuery plugin for pinning elements to the page or to a container element, so that the element stays
+ *  visible even if the user scrolls the page. This type of elements are also refered to as "fixed position elements"
+ *  or "sticky elements".
+ *
+ *  You can have "hard" pinned elements (elements are pinned to their initial position and stay there), elements that
+ *  become pinned only when the user scrolls to them, pinned elements that move only inside their parent element.
+ *
+ *  Also, custom events are fired when elements are pinned/unpinned giving you even more power for customizing the result.
  *
  *  Note that this plugin will alter the target element(s) "position" property to "absolute" and/or "fixed", depending
  *  on the situation, so before calling the plugin make sure that this change will not affect your page's layout.
- *
- *  Pinned elements can be configured to move only inside a container element and/or to animate into view once we've
- *  scrolled past them.
  *
  *  Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 7+)
  *
@@ -18,7 +21,7 @@
  *  For more resources visit {@link http://stefangabos.ro/}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.0.0 (last revision: December 06, 2013)
+ *  @version    1.0.0 (last revision: December 07, 2013)
  *  @copyright  (c) 2013 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pin
@@ -85,7 +88,9 @@
         plugin.settings = {};
 
         /**
-         *  the "constructor" method that gets called when the object is created
+         *  Constructor method. Initializes the plugin.
+         *
+         *  @return void
          */
         var _init = function() {
 
@@ -107,7 +112,25 @@
         };
 
         /**
+         *  Updates the pinned elements' positions in accordance with the scrolled amount and with the pinned elements'
+         *  container elements (if any).
          *
+         *  Useful if a pinned element's parent changes height.
+         *
+         *  <code>
+         *  // initialize the plugin
+         *  var zp = new Zebra_Pin($('#my_pinned_element'), {
+         *      // element can move only inside
+         *      // the parent element
+         *      'contain':  true
+         *  });
+         *
+         *  // if the parent element's height changes
+         *  // update also the boundaries
+         *  zp.update();
+         *  </code>
+         *
+         *  @return void
          */
         plugin.update = function() {
 
