@@ -13,8 +13,9 @@ Note that this plugin will alter the target element(s) "position" property to "a
 ##Features
 
  - elements can be pinned inside a container element, not just to the page
+ - custom events are fired when pinning/unpinning elements offering even more control
  - it is small – it weights around 2KB minified offering the best ratio of features per used bytes
- - it’s cross-browser – works in every major browser
+ - it’s cross-browser – works in every major browser and IE7+
 
 ## Requirements
 
