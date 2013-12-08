@@ -3,7 +3,7 @@
   "description": "A lightweight jQuery plugin for pinning any element to the page or to a container element",
   "version": "1.0.0",
   "license": "LGPL",
-  "main": "public/javascript/zebra_pin.js"
+  "main": "public/javascript/zebra_pin.js",
   "ignore": [
     "bower.json",
     "Gruntfile.js",
