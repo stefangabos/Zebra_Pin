@@ -11,7 +11,7 @@
         "floating",
         "ui"
     ],
-    "version": "1.0.1",
+    "version": "1.0.2",
     "author": {
         "name": "Stefan Gabos",
         "url": "http://stefangabos.ro/"
@@ -25,7 +25,7 @@
     "licenses": [
         {
             "type": "LGPL",
-            "url": "https://github.com/stefangabos/Zebra_Pin/blob/master/license.txt"
+            "url": "https://www.gnu.org/licenses/lgpl-3.0.txt"
         }
     ],
     "bugs": "http://stefangabos.ro/jquery/zebra-pin/#how-to-use",
