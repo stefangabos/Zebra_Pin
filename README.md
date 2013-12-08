@@ -78,4 +78,4 @@ $(document).ready(function() {
 });
 ```
 
-Configuration options and demos on the **[project's homepage](http://stefangabos.ro/jquery/zebra_pin/)**
+Configuration options and demos on the **[project's homepage](http://stefangabos.ro/jquery/zebra-pin/)**
