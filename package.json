@@ -5,7 +5,7 @@
     "name": "Stefan Gabos",
     "email": "contact@stefangabos.ro"
   },
-  "homepage": "http://www.stefangabos.ro/jquery-plugins/Zebra_Pin/",
+  "homepage": "http://www.stefangabos.ro/jquery/zebra-pin/",
   "repository": {
     "type": "git",
     "url": "https://github.com/stefangabos/Zebra_Pin.git"
@@ -16,7 +16,7 @@
       "url": "https://www.gnu.org/licenses/lgpl-3.0.txt"
     }
   ],
-  "version": "1.0.1",
+  "version": "1.0.2",
   "keywords": [
     "fixed",
     "sticky",
