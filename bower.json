@@ -5,6 +5,7 @@
   "license": "LGPL",
   "main": "public/javascript/zebra_pin.js",
   "ignore": [
+    ".gitignore",
     "bower.json",
     "Gruntfile.js",
     "package.json",
