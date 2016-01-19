@@ -20,12 +20,16 @@ module.exports = function(grunt) {
         'jshint': {
             files: source_files,
             options: {
-                indent: 4,
+                browser: true,
+                indent: false,
                 quotmark: 'single',
                 strict: true,
-                trailing: false,
+                trailing: true,
                 loopfunc: true,
-                scripturl: true
+                scripturl: true,
+                indent: 4,
+                boss: true,
+                sub: true
             }
         },
 
@@ -44,6 +48,6 @@ module.exports = function(grunt) {
 
     // register tasks
 
-    grunt.registerTask('default', ['jshint', 'uglify']);
+    grunt.registerTask('default', ['jshint', 'uglify', 'watch']);
 
 };
