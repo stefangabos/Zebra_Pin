@@ -1,5 +1,5 @@
 {
-  "name": "Zebra_Pin",
+  "name": "zebra_pin",
   "description": "Zebra_Pin is a lightweight (less than 2KB minified) and adaptive jQuery plugin for pinning any element to the page or to a container element, so that the element stays visible even if the user scrolls the page. This type of elements are also referred to as \"fixed position elements\" or \"sticky elements\".",
   "author": {
     "name": "Stefan Gabos",
@@ -16,7 +16,7 @@
       "url": "https://www.gnu.org/licenses/lgpl-3.0.txt"
     }
   ],
-  "version": "1.0.3",
+  "version": "1.0.4",
   "keywords": [
     "fixed",
     "sticky",

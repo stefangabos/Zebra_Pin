@@ -1,7 +1,7 @@
 {
-  "name": "Zebra_Pin",
+  "name": "zebra_pin",
   "description": "A lightweight jQuery plugin for pinning any element to the page or to a container element",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "LGPL",
   "main": "public/javascript/zebra_pin.js",
   "authors": ["Stefan Gabos"],
@@ -16,6 +16,6 @@
     "ui"
   ],
   "dependencies": {
-    "jquery": ">= 1.4.2"
+    "jquery": ">=1.4.2 <2.x"
   }
 }
