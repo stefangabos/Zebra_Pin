@@ -4,14 +4,8 @@
   "version": "1.0.2",
   "license": "LGPL",
   "main": "public/javascript/zebra_pin.js",
-  "ignore": [
-    ".gitignore",
-    "bower.json",
-    "Gruntfile.js",
-    "package.json",
-    "zebra-pin.jquery.json",
-    "*.md"
-  ],
+  "authors": ["Stefan Gabos"],
+  "ignore": {},
   "keywords": [
     "fixed",
     "sticky",
@@ -20,5 +14,8 @@
     "position",
     "floating",
     "ui"
-  ]
+  ],
+  "dependencies": {
+    "jquery": ">= 1.4.2"
+  }
 }
