@@ -26,8 +26,8 @@
  *  For more resources visit {@link http://stefangabos.ro/}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.0.2 (last revision: December 08, 2013)
- *  @copyright  (c) 2013 Stefan Gabos
+ *  @version    1.0.3 (last revision: January 20, 2016)
+ *  @copyright  (c) 2013 - 2016 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pin
  */
