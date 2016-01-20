@@ -1,11 +1,12 @@
 {
   "name": "zebra_pin",
-  "description": "A lightweight jQuery plugin for pinning any element to the page or to a container element",
   "version": "1.0.4",
-  "license": "LGPL",
   "main": "public/javascript/zebra_pin.js",
-  "authors": ["Stefan Gabos"],
-  "ignore": {},
+  "homepage": "https://github.com/stefangabos/Zebra_Pin",
+  "authors": [
+    "Stefan Gabos <contact@stefangabos.ro>"
+  ],
+  "description": "A lightweight jQuery plugin for pinning any element to the page or to a container element",
   "keywords": [
     "fixed",
     "sticky",
@@ -17,5 +18,14 @@
   ],
   "dependencies": {
     "jquery": ">=1.4.2 <2.x"
-  }
+  },
+  "license": "LGPL",
+  "ignore": [
+    ".gitattributes",
+    ".gitignore",
+    "Gruntfile.js",
+    "package.json",
+    "README.md",
+    "bower.json"
+  ]
 }
