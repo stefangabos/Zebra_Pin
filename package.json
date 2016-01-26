@@ -1,13 +1,13 @@
 {
   "name": "zebra_pin",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "main": "public/javascript/zebra_pin.js",
   "homepage": "https://github.com/stefangabos/Zebra_Pin",
   "author": {
     "name": "Stefan Gabos",
     "email": "contact@stefangabos.ro"
   },
-  "description": "Zebra_Pin is a lightweight (less than 2KB minified) and adaptive jQuery plugin for pinning any element to the page or to a container element, so that the element stays visible even if the user scrolls the page. This type of elements are also referred to as \"fixed position elements\" or \"sticky elements\".",
+  "description": "A lightweight jQuery plugin for pinning any element to the page or to a container element",
   "repository": {
     "type": "git",
     "url": "https://github.com/stefangabos/Zebra_Pin.git"
