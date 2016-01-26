@@ -29,9 +29,16 @@ Zebra_Pin has no dependencies other than jQuery 1.4.2+
 
 ## How to use
 
-Zebra_Pin is also available as a [Bower](http://bower.io/) package. To install it use:
+Zebra_Pin is available as a [Bower package](http://bower.io/). To install it use:
+
 ```
 bower install zebra_pin
+```
+
+Zebra_Pin is also available as a [npm package](https://www.npmjs.com/package/zebra_pin). To install it use:
+
+```
+npm install zebra_pin
 ```
 
 Load the latest version of jQuery from a CDN and provide a fallback to a local source, like:
