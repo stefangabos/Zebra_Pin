@@ -1,6 +1,6 @@
 {
   "name": "zebra_pin",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "public/javascript/zebra_pin.js",
   "homepage": "https://github.com/stefangabos/Zebra_Pin",
   "author": {
@@ -17,6 +17,8 @@
     "email": "contact@stefangabos.ro"
   },
   "keywords": [
+    "jquery-plugin",
+    "ecosystem:jquery",
     "fixed",
     "sticky",
     "pin",
