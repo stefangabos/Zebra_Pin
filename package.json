@@ -1,22 +1,21 @@
 {
   "name": "zebra_pin",
-  "description": "Zebra_Pin is a lightweight (less than 2KB minified) and adaptive jQuery plugin for pinning any element to the page or to a container element, so that the element stays visible even if the user scrolls the page. This type of elements are also referred to as \"fixed position elements\" or \"sticky elements\".",
+  "version": "1.0.6",
+  "main": "public/javascript/zebra_pin.js",
+  "homepage": "https://github.com/stefangabos/Zebra_Pin",
   "author": {
     "name": "Stefan Gabos",
     "email": "contact@stefangabos.ro"
   },
-  "homepage": "http://www.stefangabos.ro/jquery/zebra-pin/",
+  "description": "Zebra_Pin is a lightweight (less than 2KB minified) and adaptive jQuery plugin for pinning any element to the page or to a container element, so that the element stays visible even if the user scrolls the page. This type of elements are also referred to as \"fixed position elements\" or \"sticky elements\".",
   "repository": {
     "type": "git",
     "url": "https://github.com/stefangabos/Zebra_Pin.git"
   },
-  "licenses": [
-    {
-      "type": "LGPL",
-      "url": "https://www.gnu.org/licenses/lgpl-3.0.txt"
-    }
-  ],
-  "version": "1.0.5",
+  "bugs": {
+    "url": "https://github.com/stefangabos/Zebra_Pin/issues",
+    "email": "contact@stefangabos.ro"
+  },
   "keywords": [
     "fixed",
     "sticky",
@@ -26,10 +25,12 @@
     "floating",
     "ui"
   ],
-  "bugs": {
-    "url": "http://github.com/stefangabos/Zebra_Pin/issues",
-    "email": "contact@stefangabos.ro"
-  },
+  "licenses": [
+    {
+      "type": "LGPL",
+      "url": "https://www.gnu.org/licenses/lgpl-3.0.txt"
+    }
+  ],
   "devDependencies": {
     "grunt": "*",
     "grunt-contrib-jshint": "*",
