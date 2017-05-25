@@ -27,17 +27,17 @@
     "floating",
     "ui"
   ],
-  "licenses": [
-    {
-      "type": "LGPL",
-      "url": "https://www.gnu.org/licenses/lgpl-3.0.txt"
-    }
-  ],
+  "license": "LGPL-3.0",
   "devDependencies": {
     "grunt": "*",
+    "grunt-cli": "*",
+    "grunt-contrib-copy": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",
-    "grunt-cli": "*",
-    "grunt-contrib-watch": "*"
+    "grunt-contrib-watch": "*",
+    "grunt-eslint": "*",
+    "grunt-newer": "*",
+    "grunt-notify": "*",
+    "time-grunt": "*"
   }
 }
