@@ -1,16 +1,14 @@
 $(document).ready(function() {
 
     // Pin #1
-    var
-
-        pin = new $.Zebra_Pin($('#pin1'), {
+    var pin = new $.Zebra_Pin($('#pin1'), {
             top_spacing: 10,
             contain: true
         }),
         $container = $('.pin1-container'),
         additional_height = -100;
 
-    $('button').bind('click', function() {
+    $('button').on('click', function() {
         additional_height = additional_height * -1;
         $container.css('height', '+=' + additional_height);
         pin.update();

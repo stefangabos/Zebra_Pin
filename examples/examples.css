@@ -1,0 +1,16 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.syntaxhighlighter {
+    padding: 1em 0;
+}
+
+.pin { width: 165px; padding: 1em }
+
+.pin1-container { background: #2980b9; height: 500px }
+
+#pin1 { background: #27AE60 }
+#pin2 { background: #27AE60 }
+#pin3 { background: #27AE60 }
+
