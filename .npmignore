@@ -1,6 +1,9 @@
-todo.txt
 node_modules/*
 .gitattributes
+.gitignore
 .npmignore
-bower.json
 Gruntfile.js
+bower.json
+eslint.json
+package.json
+todo.txt
