@@ -39,56 +39,56 @@
 
         var defaults = {
 
-            //  class to add to the element when it is "sticky"
-            class_name: 'Zebra_Pin',
+                //  class to add to the element when it is "sticky"
+                class_name: 'Zebra_Pin',
 
-            //  specifies whether the pinned element should be restrained to its parent element's boundaries or not.
-            //
-            //  default is FALSE
-            contain: false,
+                //  specifies whether the pinned element should be restrained to its parent element's boundaries or not.
+                //
+                //  default is FALSE
+                contain: false,
 
-            //  specifies whether the element should be "hard" pinned (the element is pinned to its position from
-            //  the beginning), or become pinned only when it is about to be hidden.
-            //
-            //  default is FALSE
-            hard: false,
+                //  specifies whether the element should be "hard" pinned (the element is pinned to its position from
+                //  the beginning), or become pinned only when it is about to be hidden.
+                //
+                //  default is FALSE
+                hard: false,
 
-            //  margin, in pixels, from the container element's (or the browser window's) top
-            //  this only works if the "hard" property is set to FALSE.
-            //
-            //  default is 0
-            top_spacing: 0,
+                //  margin, in pixels, from the container element's (or the browser window's) top
+                //  this only works if the "hard" property is set to FALSE.
+                //
+                //  default is 0
+                top_spacing: 0,
 
-            //  margin, in pixels, from the container element's bottom
-            //  this only works if the "hard" property is set to FALSE and it is used only if the "contain" property is TRUE
-            //
-            //  default is 0
-            bottom_spacing: 0,
+                //  margin, in pixels, from the container element's bottom
+                //  this only works if the "hard" property is set to FALSE and it is used only if the "contain" property is TRUE
+                //
+                //  default is 0
+                bottom_spacing: 0,
 
-            //  the value of zIndex CSS property to be set for pinned elements
-            //  default is 9999
-            z_index: 9999,
+                //  the value of zIndex CSS property to be set for pinned elements
+                //  default is 9999
+                z_index: 9999,
 
-            //  callback function to be executed when an element is pinned
-            //  the callback function receives 3 arguments:
-            //  -   the vertical position, relative to the document, where the event occurred
-            //  -   a reference to the pinned element
-            //  -   the index of the element - if the plugin was attached to multiple elements (0 based)
-            onPin: null,
+                //  callback function to be executed when an element is pinned
+                //  the callback function receives 3 arguments:
+                //  -   the vertical position, relative to the document, where the event occurred
+                //  -   a reference to the pinned element
+                //  -   the index of the element - if the plugin was attached to multiple elements (0 based)
+                onPin: null,
 
-            //  callback function to be executed when an element is unpinned
-            //  the callback function receives 3 arguments:
-            //  -   the vertical position, relative to the document, where the event occurred
-            //  -   a reference to the unpinned element
-            //  -   the index of the element - if the plugin was attached to multiple elements (0 based)
-            onUnpin: null
+                //  callback function to be executed when an element is unpinned
+                //  the callback function receives 3 arguments:
+                //  -   the vertical position, relative to the document, where the event occurred
+                //  -   a reference to the unpinned element
+                //  -   the index of the element - if the plugin was attached to multiple elements (0 based)
+                onUnpin: null
 
-        },
+            },
 
-        plugin = this,
+            plugin = this,
 
-        // generate a unique id to use for easily binding/unbinding events and not interfere with other instances of the plugin
-        uniqueid = (Math.random() + 1).toString(36).substring(2, 7);
+            // generate a unique id to use for easily binding/unbinding events and not interfere with other instances of the plugin
+            uniqueid = (Math.random() + 1).toString(36).substring(2, 7);
 
         plugin.settings = {};
 
@@ -224,10 +224,10 @@
                     var proxy = '.Zebra_Pin_' + uniqueid + '_' + index;
 
                     // unbind a previously set callback function (if any)
-                    $(window).unbind('scroll' + proxy).
+                    $(window).unbind('scroll' + proxy)
 
                     // when the page is scrolled
-                    bind('scroll' + proxy, function() {
+                    .bind('scroll' + proxy, function() {
 
                         // get scrolled amount
                         var scroll = $(window).scrollTop();
@@ -243,7 +243,7 @@
                             (!plugin.settings.contain || (scroll <= container_offset.top + container_height - height - plugin.settings.bottom_spacing)) &&
 
                             // element's position is not already set to "fixed"
-                            $element.css('position') != 'fixed'
+                            $element.css('position') !== 'fixed'
 
                         ) {
 
@@ -258,7 +258,7 @@
                             }).addClass(plugin.settings.class_name);
 
                             // if a callback function exists for when pinning an element
-                            if (plugin.settings.onPin && typeof plugin.settings.onPin == 'function')
+                            if (plugin.settings.onPin && typeof plugin.settings.onPin === 'function')
 
                                 // execute the callback function and pass as arguments the scrolled amount, the element
                                 // the plugin is attached to, and the index of the element from the list of elements the
@@ -272,7 +272,7 @@
                             scroll < offset.top - plugin.settings.top_spacing &&
 
                             // element's position is not already set to "absolute"
-                            $element.css('position') != 'absolute'
+                            $element.css('position') !== 'absolute'
 
                         ) {
 
@@ -287,7 +287,7 @@
                             }).removeClass(plugin.settings.class_name);
 
                             // if a callback function exists for when unpinning an element
-                            if (plugin.settings.onUnpin && typeof plugin.settings.onUnpin == 'function')
+                            if (plugin.settings.onUnpin && typeof plugin.settings.onUnpin === 'function')
 
                                 // execute the callback function and pass as arguments the scrolled amount, the element
                                 // the plugin is attached to, and the index of the element from the list of elements the
@@ -304,7 +304,7 @@
                             scroll >= container_offset.top + container_height - height - plugin.settings.bottom_spacing &&
 
                             // element's position is not already set to "absolute"
-                            $element.css('position') != 'absolute'
+                            $element.css('position') !== 'absolute'
 
                         ) {
 
@@ -319,7 +319,7 @@
                             }).removeClass(plugin.settings.class_name);
 
                             // if a callback function exists for when unpinning an element
-                            if (plugin.settings.onUnpin && typeof plugin.settings.onUnpin == 'function')
+                            if (plugin.settings.onUnpin && typeof plugin.settings.onUnpin === 'function')
 
                                 // execute the callback function and pass as arguments the scrolled amount, the element
                                 // the plugin is attached to, and the index of the element from the list of elements the
@@ -344,4 +344,4 @@
 
     };
 
-})(jQuery);
+})($);
