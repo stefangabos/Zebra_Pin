@@ -24,8 +24,8 @@
     ".gitignore",
     ".npmignore",
     "Gruntfile.js",
-    "package.json",
-    "README.md",
-    "bower.json"
+    "bower.json",
+    "eslint.json",
+    "package.json"
   ]
 }
