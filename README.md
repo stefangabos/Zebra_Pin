@@ -1,14 +1,18 @@
+<img src="https://raw.githubusercontent.com/stefangabos/zebrajs/master/docs/images/logo.png" alt="zebrajs" align="right">
+
 # Zebra_Pin
 
-#### A lightweight jQuery plugin for pinning any element to the page or to a container element
+*A lightweight jQuery plugin for pinning any element to the page or to a container element*
 
-Zebra_Pin is a lightweight (around 2KB minified) and adaptive (things work as expected when you manually resize the browser window) jQuery plugin for pinning elements to the page or to a container element, so that the element stays visible even if the user scrolls the page. This type of elements are also referred to as "fixed position elements" or "sticky elements".
+[![npm](https://img.shields.io/npm/v/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin) [![Total](https://img.shields.io/npm/dt/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin) [![Monthly](https://img.shields.io/npm/dm/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin) [![License](https://img.shields.io/npm/l/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin)
 
-You can use it in your projects to create sticky sidebars, sticky navigation, sticky headers and footers, or anything else you feel the need to make it stick to the page while the user scrolls.
+Zebra_Pin is a lightweight (around 2KB minified) and adaptive (things work as expected when you resize the browser window) jQuery plugin for pinning elements to the page or to a container element, so that the element stays visible even if the user scrolls the page. This type of elements are also referred to as *fixed position elements* or *sticky elements*.
 
-You can have "hard" pinned elements (elements are pinned to their initial position and stay there), elements that become pinned only when the user scrolls to them, pinned elements that move only inside their parent element.
+You can use it to create sticky sidebars, sticky navigation, sticky headers and footers, or anything else you feel the need to make it stick to the page while the user scrolls.
 
-When elements become pinned a CSS class will be added to them, as specified by the plugin's "class_name" property.
+You can have *hard* pinned elements (elements are pinned to their initial position and stay there), elements that become pinned only when the user scrolls to them and pinned elements whose movement is restricted to their parent element.
+
+When elements become pinned a CSS class will be added to them, as specified by the plugin's *class_name* property.
 
 Also, custom events are fired when elements are pinned/unpinned giving you even more power for customizing the result.
 
@@ -62,13 +66,13 @@ $(document).ready(function() {
     // easiest way to get started: when the user scrolls to the element
     // the element will become pinned (sticky) and will scroll with the page
 
-    new Zebra_Pin($('#myelement'));
+    new $.Zebra_Pin($('#myelement'));
 
     // in the example above, the element will be at the very top edge of the
     // screen. if you want to add some top margin simply set the "top_spacing"
     // property
 
-    new Zebra_Pin($('#myelement'), {
+    new $.Zebra_Pin($('#myelement'), {
         top_spacing: 10
     });
 
@@ -77,14 +81,14 @@ $(document).ready(function() {
     // (make sure the container element has its "position" set to "relative" or
     // "absolute")
 
-    new Zebra_Pin($('#myelement'), {
+    new $.Zebra_Pin($('#myelement'), {
         contained: true
     });
 
     // or, you may want to pin an element *exactly* to the position where it's at
     // and make it stay there no matter what (we'll call this a "hard" pin)
 
-    new Zebra_Pin($('#myelement'), {
+    new $.Zebra_Pin($('#myelement'), {
         hard: true
     });
 
