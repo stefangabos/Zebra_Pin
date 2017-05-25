@@ -6,7 +6,7 @@ $(document).ready(function() {
             contain: true
         }),
         $container = $('.pin1-container'),
-        additional_height = -100;
+        additional_height = -300;
 
     $('button').on('click', function() {
         additional_height = additional_height * -1;
