@@ -26,8 +26,8 @@
  *  For more resources visit {@link http://stefangabos.ro/}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.0.9 (last revision: January 26, 2016)
- *  @copyright  (c) 2013 - 2016 Stefan Gabos
+ *  @version    1.1.0 (last revision: May 25, 2017)
+ *  @copyright  (c) 2013 - 2017 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pin
  */
@@ -88,7 +88,9 @@
             plugin = this,
 
             // generate a unique id to use for easily binding/unbinding events and not interfere with other instances of the plugin
-            uniqueid = (Math.random() + 1).toString(36).substring(2, 7);
+            uniqueid = (Math.random() + 1).toString(36).substring(2, 7),
+
+            $window = $(window);
 
         plugin.settings = {};
 
@@ -107,7 +109,7 @@
             plugin.update();
 
             // on window resize
-            $(window).bind('resize', function() {
+            $window.on('resize', function() {
 
                 // update elements' position
                 plugin.update();
@@ -199,10 +201,10 @@
                     // set element's CSS properties
                     $element.css({
 
-                        'position': 'fixed',
-                        'left': offset.left,
-                        'top': offset.top,
-                        'zIndex': plugin.settings.z_index
+                        position:   'fixed',
+                        left:       offset.left,
+                        top:        offset.top,
+                        zIndex:     plugin.settings.z_index
 
                     // add a class indicating that the element is pinned
                     }).addClass(plugin.settings.class_name);
@@ -213,7 +215,7 @@
                     // set element's default properties
                     $element.css({
 
-                        'zIndex': plugin.settings.z_index
+                        zIndex: plugin.settings.z_index
 
                     // remove the class indicating that the element is pinned
                     }).removeClass(plugin.settings.class_name);
@@ -224,13 +226,13 @@
                     var proxy = '.Zebra_Pin_' + uniqueid + '_' + index;
 
                     // unbind a previously set callback function (if any)
-                    $(window).unbind('scroll' + proxy)
+                    $window.off('scroll' + proxy)
 
                     // when the page is scrolled
-                    .bind('scroll' + proxy, function() {
+                    .on('scroll' + proxy, function() {
 
                         // get scrolled amount
-                        var scroll = $(window).scrollTop();
+                        var scroll = $window.scrollTop();
 
                         // if
                         if (
@@ -240,7 +242,7 @@
 
                             // the element has no parent, or the element needs to be contained inside its parent's boundaries
                             // and the element is currently inside its parent's boundaries
-                            (!plugin.settings.contain || (scroll <= container_offset.top + container_height - height - plugin.settings.bottom_spacing)) &&
+                            (!plugin.settings.contain || (scroll <= container_offset.top + container_height - plugin.settings.top_spacing - height - plugin.settings.bottom_spacing)) &&
 
                             // element's position is not already set to "fixed"
                             $element.css('position') !== 'fixed'
@@ -250,9 +252,9 @@
                             // set element's CSS properties
                             $element.css({
 
-                                'position': 'fixed',
-                                'left': offset.left,
-                                'top': plugin.settings.top_spacing
+                                position:   'fixed',
+                                left:       offset.left,
+                                top:        plugin.settings.top_spacing
 
                             // add a class indicating that the element is pinned
                             }).addClass(plugin.settings.class_name);
@@ -279,9 +281,9 @@
                             // set element's CSS properties
                             $element.css({
 
-                                'position': 'absolute',
-                                'left': position.left,
-                                'top': position.top
+                                position:   'absolute',
+                                left:       position.left,
+                                top:        position.top
 
                             // remove the class indicating that the element is pinned
                             }).removeClass(plugin.settings.class_name);
@@ -301,7 +303,7 @@
                             plugin.settings.contain &&
 
                             // the user scrolled past the container element's boundaries
-                            scroll >= container_offset.top + container_height - height - plugin.settings.bottom_spacing &&
+                            scroll >= container_offset.top + container_height - plugin.settings.top_spacing - height - plugin.settings.bottom_spacing &&
 
                             // element's position is not already set to "absolute"
                             $element.css('position') !== 'absolute'
@@ -311,9 +313,9 @@
                             // set element's CSS properties
                             $element.css({
 
-                                'position': 'absolute',
-                                'left': position.left,
-                                'top': container_offset.top + container_height - height - plugin.settings.bottom_spacing
+                                position:   'absolute',
+                                left:       position.left,
+                                top:        container_height - height - plugin.settings.bottom_spacing - plugin.settings.bottom_spacing
 
                             // remove the class indicating that the element is pinned
                             }).removeClass(plugin.settings.class_name);
@@ -331,7 +333,7 @@
                     });
 
                     // trigger the scroll event so that the computations take effect
-                    $(window).trigger('scroll' + proxy);
+                    $window.trigger('scroll' + proxy);
 
                 }
 
@@ -344,4 +346,4 @@
 
     };
 
-})($);
+})(jQuery);
