@@ -28,7 +28,7 @@ Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 7
 
  - elements can be pinned inside a container element, not just to the page
  - custom events are fired when pinning/unpinning elements for more control
- - it is really small – it weights 2KB minified (~1.2KB gzipped) offering a very good ratio of features per used bytes
+ - it is really small – it weights 2KB minified (~800 bytes gzipped) offering a very good ratio of features per used bytes
  - it's cross-browser – works in every major browser and IE7+
 
 ## Requirements
