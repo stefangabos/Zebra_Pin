@@ -6,7 +6,7 @@
 
 [![npm](https://img.shields.io/npm/v/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin) [![Total](https://img.shields.io/npm/dt/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin) [![Monthly](https://img.shields.io/npm/dm/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin) [![License](https://img.shields.io/npm/l/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin)
 
-Zebra_Pin is a lightweight (2KB minified, ~1KB gzipped) and adaptive (things work as expected when the browser window is resized) jQuery plugin for pinning elements to the page or to a container element, so that the pinned elements stay visible even if the user scrolls the page. This type of elements are also referred to as *fixed position elements* or *sticky elements*.
+Zebra_Pin is a lightweight (2KB minified, ~800 bytes gzipped) and adaptive (things work as expected when the browser window is resized) jQuery plugin for pinning elements to the page or to a container element, so that the pinned elements stay visible even if the user scrolls the page. This type of elements are also referred to as *fixed position elements* or *sticky elements*.
 
 Use it to create sticky sidebars, sticky navigation, sticky headers and footers, or anything else you feel the need to make it stick to the page while the user scrolls.
 

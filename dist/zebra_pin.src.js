@@ -1,7 +1,7 @@
 /**
  *  Zebra_Pin
  *
- *  Zebra_Pin is a lightweight (2KB minified, ~1.2KB gzipped) and adaptive (things work as expected when the browser
+ *  Zebra_Pin is a lightweight (2KB minified, ~800 bytes gzipped) and adaptive (things work as expected when the browser
  *  window is resized) jQuery plugin for pinning elements to the page or to a container element, so that pinned elements
  *  stay visible even if the user scrolls the page. This type of elements are also referred to as "fixed position elements"
  *  or "sticky elements".
