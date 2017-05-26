@@ -1,6 +1,6 @@
 {
   "name": "zebra_pin",
-  "main": "public/javascript/zebra_pin.js",
+  "main": "dist/zebra_pin.min.js",
   "homepage": "https://github.com/stefangabos/Zebra_Pin",
   "authors": [
     "Stefan Gabos <contact@stefangabos.ro>"
