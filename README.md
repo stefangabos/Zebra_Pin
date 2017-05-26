@@ -64,6 +64,17 @@ Load the Zebra_Pin jQuery plugin:
 <script src="path/to/zebra_pin.min.js"></script>
 ```
 
+Alternatively, you can load Zebra_Pin from [JSDelivr CDN](https://www.jsdelivr.com/) like this:
+```javascript
+// for the most recent version
+<script src="https://cdn.jsdelivr.net/gh/stefangabos/Zebra_Pin/dist/zebra_pin.min.js"></script>
+
+// for a specific version
+<script src="https://cdn.jsdelivr.net/gh/stefangabos/Zebra_Pin@1.1.1/dist/zebra_pin.min.js"></script>
+
+// replacing "min" with "src" will serve you the non-compressed version
+```
+
 Now, within the DOM-ready event, pin elements to page or to a container:
 
 ```javascript
