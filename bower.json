@@ -23,9 +23,9 @@
     ".gitattributes",
     ".gitignore",
     ".npmignore",
-    "Gruntfile.js",
     "bower.json",
     "eslint.json",
+    "Gruntfile.js",
     "package.json"
   ]
 }
