@@ -6,7 +6,25 @@ body {
     padding: 1em 0;
 }
 
-.pin { width: 165px; padding: 1em }
+.pin { padding: 1em }
+
+@media (min-width: 1200px) {
+    .pin {
+        width: 165px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .pin {
+        width: 132px;
+    }
+}
+
+@media (max-width: 991px) {
+    .pin {
+        width: 95px;
+    }
+}
 
 .pin1-container { background: #2980b9; height: 500px }
 
