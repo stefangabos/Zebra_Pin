@@ -119,7 +119,7 @@ $(document).ready(function() {
         <td valign="top">FALSE</td>
         <td valign="top">
             Specifies whether the pinned element should be restrained to its parent element's boundaries or not.<br><br>
-            <blockquote>The container element <strong>must</strong> have the <code>position</code> property set to
+            <blockquote>The container element <strong>must</strong> have the <code>position</code> CSS property set to
             something other than <strong>static</strong></blockquote>
         </td>
     </tr>
@@ -167,7 +167,7 @@ $(document).ready(function() {
     <thead>
     <tr>
         <th>Event</th>
-        <th>Description</th>
+        <th width="100%">Description</th>
     </tr>
     </thead>
     <tbody>
@@ -204,7 +204,7 @@ $(document).ready(function() {
 
 Updates the pinned elements' positions in accordance with the scrolled amount and with the pinned elements' container elements (if any).
 
-Useful if a pinned element's parent changes height.
+*Useful if a pinned element's parent changes height.*
 
 ```javascript
 // initialize the plugin
