@@ -1,15 +1,15 @@
 /**
  *  Zebra_Pin
  *
- *  Zebra_Pin is a lightweight (around 2KB minified) and adaptive (things work as expected when you manually resize the
- *  browser window) jQuery plugin for pinning elements to the page or to a container element, so that the element stays
- *  visible even if the user scrolls the page. This type of elements are also referred to as "fixed position elements"
+ *  Zebra_Pin is a lightweight (2KB minified, ~1.2KB gzipped) and adaptive (things work as expected when the browser
+ *  window is resized) jQuery plugin for pinning elements to the page or to a container element, so that pinned elements
+ *  stay visible even if the user scrolls the page. This type of elements are also referred to as "fixed position elements"
  *  or "sticky elements".
  *
- *  You can use it in your projects to create sticky sidebars, sticky navigation, sticky headers and footers, or anything
- *  else you feel the need to make it stick to the page while the user scrolls.
+ *  Use it to create sticky sidebars, sticky navigation, sticky headers and footers, or anything else you feel the need
+ *  to make it stick to the page while the user scrolls.
  *
- *  You can have "hard" pinned elements (elements are pinned to their initial position and stay there), elements that
+ *  You can have "hard" pinned elements - elements are pinned to their initial position and stay there, elements that
  *  become pinned only when the user scrolls to them, pinned elements that move only inside their parent element.
  *
  *  When elements become pinned a CSS class will be added to them, as specified by the plugin's "class_name" property.
@@ -17,16 +17,14 @@
  *  Also, custom events are fired when elements are pinned/unpinned giving you even more power for customizing the result.
  *
  *  Note that this plugin will alter the target element(s) "position" property to "absolute" and/or "fixed", depending
- *  on the situation, so before calling the plugin make sure that this change will not affect your page's layout.
+ *  on the situation, so, before enabling the plugin, make sure that this will not affect your page's layout.
  *
  *  Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 7+)
- *
- *  Visit {@link http://stefangabos.ro/jquery/zebra-pin/} for more information.
- *
- *  For more resources visit {@link http://stefangabos.ro/}
+ * *
+ *  Read more {@link https://github.com/stefangabos/Zebra_Tooltips/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.1.0 (last revision: May 25, 2017)
+ *  @version    1.1.1 (last revision: May 26, 2017)
  *  @copyright  (c) 2013 - 2017 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pin
@@ -175,25 +173,30 @@
                     // doesn't and so we need to compensate
                     // see http://bugs.jquery.com/ticket/11606
                     margin_left = (parseInt($element.css('marginLeft'), 10) || 0),
-                    margin_top = (parseInt($element.css('marginTop'), 10) || 0);
+                    margin_top = (parseInt($element.css('marginTop'), 10) || 0),
+
+                    // we'll use these later on, if the pinned element needs to be contained in the parent element
+                    $container, container_height, container_offset,
+
+                    proxy;
 
                 // adjust offset with margins
                 offset.left -= margin_left;
                 offset.top -= margin_top;
 
                 // if pinned element needs to be contained inside the parent element's boundaries
-                if (plugin.settings.contain)
+                if (plugin.settings.contain) {
 
-                    var
+                    // reference to the parent element
+                    $container = $element.parent();
 
-                        // reference to the parent element
-                        $container = $element.parent(),
+                    // get parent element's height
+                    container_height = $container.height();
 
-                        // get parent element's height
-                        container_height = $container.height(),
+                    // get parent element's position relative to the document
+                    container_offset = $container.offset();
 
-                        // get parent element's position relative to the document
-                        container_offset = $container.offset();
+                }
 
                 // if element is "hard" pinned (the element is pinned to its position from the beginning)
                 if (plugin.settings.hard)
@@ -223,7 +226,7 @@
                     // we generate a unique name for each element of each instance of the plugin
                     // we do this so that we can easily unbind them without affecting other elements
                     // and instances of the plugin
-                    var proxy = '.Zebra_Pin_' + uniqueid + '_' + index;
+                    proxy = '.Zebra_Pin_' + uniqueid + '_' + index;
 
                     // unbind a previously set callback function (if any)
                     $window.off('scroll' + proxy)
