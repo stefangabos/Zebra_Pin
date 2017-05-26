@@ -220,3 +220,7 @@ var zp = new $.Zebra_Pin($('#element'), {
 // update also the boundaries
 zp.update();
 ```
+
+## Demo
+
+See the [demos](http://stefangabos.github.io/Zebra_Pin/)
