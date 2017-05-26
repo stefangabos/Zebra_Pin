@@ -118,7 +118,7 @@ $(document).ready(function() {
         <td valign="top"><em>boolean</em></td>
         <td valign="top">FALSE</td>
         <td valign="top">
-            Specifies whether the pinned element should be restrained to its parent element's boundaries or not.<br>
+            Specifies whether the pinned element should be restrained to its parent element's boundaries or not.<br><br>
             <blockquote>The container element <strong>must</strong> have the <code>position</code> property set to
             something other than <strong>static</strong></blockquote>
         </td>
