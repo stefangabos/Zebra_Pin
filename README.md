@@ -20,6 +20,10 @@ Note that this plugin will alter the target element(s) "position" property to *a
 
 Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 7+)
 
+## Support the development of this project
+
+[![Donate](https://img.shields.io/badge/Be%20kind%20%7C%20Donate%20$3%20with%20-%20PayPal%20-brightgreen.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K8HEUNMPV65R4)
+
 ## Features
 
  - elements can be pinned inside a container element, not just to the page
