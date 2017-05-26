@@ -91,7 +91,7 @@ $(document).ready(function() {
         top_spacing: 10
     });
 
-    // if you want the element to be restrained to the height of the container
+    // if you want the element to be restricted to the height of the container
     // element, simply set the value of the "container" property to TRUE
     // (make sure the container element has its "position" set to "relative" or
     // "absolute")
@@ -133,7 +133,7 @@ $(document).ready(function() {
         <td valign="top"><em>boolean</em></td>
         <td valign="top">FALSE</td>
         <td valign="top">
-            Specifies whether the pinned element should be restrained to its parent element's boundaries or not.<br><br>
+            Specifies whether the pinned element should be restricted to its parent element's boundaries or not.<br><br>
             <blockquote>The container element <strong>must</strong> have the <code>position</code> CSS property set to
             something other than <strong>static</strong></blockquote>
         </td>

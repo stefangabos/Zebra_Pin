@@ -40,7 +40,7 @@
                 //  class to add to the element when it is "sticky"
                 class_name: 'Zebra_Pin',
 
-                //  specifies whether the pinned element should be restrained to its parent element's boundaries or not.
+                //  specifies whether the pinned element should be restricted to its parent element's boundaries or not.
                 //
                 //  default is FALSE
                 contain: false,
