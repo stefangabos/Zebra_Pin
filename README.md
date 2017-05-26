@@ -174,7 +174,7 @@ $(document).ready(function() {
         <td valign="top"><code>onPin</code></td>
         <td valign="top">
             Callback function to be executed when an element is pinned<br>
-            The callback function receives 3 arguments:<br>
+            The callback function receives 3 arguments:
             <ul>
                 <li>the vertical position, relative to the document, where the event occurred</li>
                 <li>a reference to the pinned element</li>
@@ -186,7 +186,7 @@ $(document).ready(function() {
         <td valign="top"><code>onUnpin</code></td>
         <td valign="top">
             Callback function to be executed when an element is unpinned<br>
-            The callback function receives 3 arguments:<br>
+            The callback function receives 3 arguments:
             <ul>
                 <li>the vertical position, relative to the document, where the event occurred</li>
                 <li>a reference to the unpinned element</li>
