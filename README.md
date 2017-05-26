@@ -33,7 +33,7 @@ Zebra_Pin has no dependencies other than jQuery 1.4.2+
 
 ## Installation
 
-Zebra_Pin is available as a [npm package](https://www.npmjs.com/). To install it use:
+Zebra_Pin is available as a [npm package](https://www.npmjs.com/package/zebra_pin). To install it use:
 
 ```
 npm install zebra_pin
