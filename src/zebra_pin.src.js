@@ -20,7 +20,7 @@
  *  on the situation, so, before enabling the plugin, make sure that this will not affect your page's layout.
  *
  *  Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 7+)
- * *
+ *
  *  Read more {@link https://github.com/stefangabos/Zebra_Tooltips/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
