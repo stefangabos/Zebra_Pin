@@ -1,4 +1,6 @@
+examples/README.md
 node_modules/*
+src/*
 .gitattributes
 .gitignore
 .npmignore

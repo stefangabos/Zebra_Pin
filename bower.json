@@ -16,10 +16,12 @@
     "ui"
   ],
   "dependencies": {
-    "jquery": ">=1.4.2"
+    "jquery": ">=1.7.0"
   },
   "license": "LGPL",
   "ignore": [
+    "examples/README.md",
+    "src/*",
     ".gitattributes",
     ".gitignore",
     ".npmignore",

@@ -2,10 +2,12 @@
 * text=auto
 
 # Don't include these files when users download a release
-/.gitattributes export-ignore
-/.gitignore export-ignore
-/.npmignore export-ignore
-/Gruntfile.js export-ignore
-/bower.json export-ignore
-/eslint.json export-ignore
-/package.json export-ignore
+examples/README.md export-ignore
+src/ export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
+.npmignore export-ignore
+bower.json export-ignore
+eslint.json export-ignore
+Gruntfile.js export-ignore
+package.json export-ignore
