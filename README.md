@@ -33,7 +33,7 @@ Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 7
 
 ## Requirements
 
-Zebra_Pin has no dependencies other than jQuery 1.4.2+
+Zebra_Pin has no dependencies other than jQuery 1.7+
 
 ## Installation
 
