@@ -1,4 +1,4 @@
-## version 1.1.1 (May 26, 2017)
+## version 1.1.2 (May 30, 2017)
 
 - fixed a bug with contained pins where things were not working as expected if the container element would have a position other than "static"
 - new folder structure

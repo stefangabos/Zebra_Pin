@@ -24,7 +24,7 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Tooltips/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.1.1 (last revision: May 26, 2017)
+ *  @version    1.1.2 (last revision: May 30, 2017)
  *  @copyright  (c) 2013 - 2017 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pin
