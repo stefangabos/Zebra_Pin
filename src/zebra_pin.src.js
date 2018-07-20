@@ -171,7 +171,7 @@
                     // get the element's position relative to the document
                     offset = $element.offset(),
 
-                    // get the element's position relative to the offset parent
+                    // get the element's position relative to the parent element
                     position = $element.position(),
 
                     // get the element's height, including padding and border
@@ -192,7 +192,7 @@
                 offset.left -= margin_left;
                 offset.top -= margin_top;
 
-                // if pinned element needs to be contained inside the parent element's boundaries
+                // if element needs to be contained inside the parent element's boundaries
                 if (plugin.settings.contain) {
 
                     // reference to the parent element
@@ -248,7 +248,7 @@
                         // if
                         if (
 
-                            // if the user scrolled to the element (minus "top_spacing")
+                            // the user scrolled past the element's top (minus "top_spacing")
                             scroll >= offset.top - plugin.settings.top_spacing &&
 
                             // the element has no parent, or the element needs to be contained inside its parent's boundaries
@@ -281,7 +281,7 @@
                         // else if
                         } else if (
 
-                            // the user has not scrolled to the element yet
+                            // the user scrolled up past the element's top (minus "top_spacing")
                             scroll < offset.top - plugin.settings.top_spacing &&
 
                             // element's position is not already set to "absolute"
@@ -310,10 +310,10 @@
                         // else if
                         } else if (
 
-                            // the pinned element needs to be contained inside its parent's boundaries
+                            // the element needs to be contained inside the parent element's boundaries
                             plugin.settings.contain &&
 
-                            // the user scrolled past the container element's boundaries
+                            // the user scrolled past the container element's bottom
                             scroll >= container_offset.top + container_height - plugin.settings.top_spacing - height - plugin.settings.bottom_spacing &&
 
                             // element's position is not already set to "absolute"
