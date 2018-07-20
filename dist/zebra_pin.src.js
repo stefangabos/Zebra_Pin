@@ -40,7 +40,7 @@
 
         var defaults = {
 
-                //  class to add to the element when it is "sticky"
+                //  class to add to the element when it is becomes pinned
                 class_name: 'Zebra_Pin',
 
                 //  specifies whether the pinned element should be restricted to its parent element's boundaries or not.
@@ -48,20 +48,22 @@
                 //  default is FALSE
                 contain: false,
 
-                //  specifies whether the element should be "hard" pinned (the element is pinned to its position from
-                //  the beginning), or become pinned only when it is about to be hidden.
+                //  specifies whether the element should be "hard" pinned (pinned to its position from the beginning), or
+                //  become pinned only when it is about to go out of view.
                 //
                 //  default is FALSE
                 hard: false,
 
-                //  margin, in pixels, from the container element's (or the browser window's) top
+                //  distance, in pixels, from the browser window's top (or the container element's top, when element is
+                //  contained to its parent element's boundaries) from which the element should become pinned.
                 //  this only works if the "hard" property is set to FALSE.
                 //
                 //  default is 0
                 top_spacing: 0,
 
-                //  margin, in pixels, from the container element's bottom
-                //  this only works if the "hard" property is set to FALSE and it is used only if the "contain" property is TRUE
+                //  distance, in pixels, from the containing parent element's bottom which the pinned element must not
+                //  exceed.
+                //  this only works if the "hard" property is set to FALSE and the "contain" property is set to TRUE
                 //
                 //  default is 0
                 bottom_spacing: 0,
@@ -70,14 +72,14 @@
                 //  default is 9999
                 z_index: 9999,
 
-                //  callback function to be executed when an element is pinned
+                //  callback function to be executed when an element becomes pinned
                 //  the callback function receives 3 arguments:
                 //  -   the vertical position, relative to the document, where the event occurred
                 //  -   a reference to the pinned element
                 //  -   the index of the element - if the plugin was attached to multiple elements (0 based)
                 onPin: null,
 
-                //  callback function to be executed when an element is unpinned
+                //  callback function to be executed when an element becomes unpinned (reverts to its original state)
                 //  the callback function receives 3 arguments:
                 //  -   the vertical position, relative to the document, where the event occurred
                 //  -   a reference to the unpinned element
@@ -86,6 +88,7 @@
 
             },
 
+            // to avoid confusions, we use "plugin" to reference the current instance of the object
             plugin = this,
 
             // generate a unique id to use for easily binding/unbinding events and not interfere with other instances of the plugin
@@ -101,6 +104,8 @@
          *  @return void
          */
         var _init = function() {
+            // reference to the window element
+            $window = $(window),
 
             // the plugin's final properties are the merged default and
             // user-provided options (if any)
