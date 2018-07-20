@@ -231,7 +231,7 @@
                     // remove the class indicating that the element is pinned
                     }).removeClass(plugin.settings.class_name);
 
-                    // we generate a unique name for each element of each instance of the plugin
+                    // we generate a unique namespace for each element of each instance of the plugin
                     // we do this so that we can easily unbind them without affecting other elements
                     // and instances of the plugin
                     proxy = '.Zebra_Pin_' + uniqueid + '_' + index;
