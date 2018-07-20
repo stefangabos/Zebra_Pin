@@ -94,35 +94,32 @@
             // generate a unique id to use for easily binding/unbinding events and not interfere with other instances of the plugin
             uniqueid = (Math.random() + 1).toString(36).substring(2, 7),
 
-            $window = $(window);
-
-        plugin.settings = {};
-
-        /**
-         *  Constructor method. Initializes the plugin.
-         *
-         *  @return void
-         */
-        var _init = function() {
             // reference to the window element
             $window = $(window),
 
-            // the plugin's final properties are the merged default and
-            // user-provided options (if any)
-            plugin.settings = $.extend({}, defaults, options);
+            /**
+             *  Constructor method. Initializes the plugin.
+             *
+             *  @return void
+             */
+            _init = function() {
 
-            // update elements' position
-            plugin.update();
-
-            // on window resize
-            $window.on('resize', function() {
+                // the plugin's final properties are the merged default and
+                // user-provided options (if any)
+                plugin.settings = $.extend({}, defaults, options);
 
                 // update elements' position
                 plugin.update();
 
-            });
+                // on window resize
+                $window.on('resize', function() {
 
-        };
+                    // update elements' position
+                    plugin.update();
+
+                });
+
+            };
 
         /**
          *  Updates the pinned elements' positions in accordance with the scrolled amount and with the pinned elements'
@@ -150,23 +147,21 @@
             // iterate through elements that need to be pinned
             elements.each(function(index) {
 
-                // if we haven't yet saved the element's original "position" value
-                if (undefined === $(this).data('Zebra_Pin_Position'))
+                // reference to the current element
+                var $element = $(this);
 
-                    // store it now
-                    $(this).data('Zebra_Pin_Position', $(this).css('position'));
+                // if the element is already pinned
+                if ($(this).hasClass(plugin.settings.class_name)) {
 
-                // if we have already saved the element's original "position" value
-                else
+                    // reset the element's default properties
+                    $element.attr('style', $element.data('ztt_previous_style') || '').removeClass(plugin.settings.class_name).removeClass('Zebra_Pin_Contained');
 
-                    // set the element's "position" property to its original state (in case it was modified)
-                    // so we get the correct values in the next section
-                    $(this).css('position', $(this).data('Zebra_Pin_Position'));
+                    // remove the clone element, if it exists
+                    $element.next('.Zebra_Pin_Clone').remove();
+
+                }
 
                 var
-
-                    // reference to the current element
-                    $element = $(this),
 
                     // get the element's position relative to the document
                     offset = $element.offset(),
@@ -176,6 +171,9 @@
 
                     // get the element's height, including padding and border
                     height = $element.outerHeight(),
+
+                    // get the element's width, including padding and border
+                    width = $element.outerWidth(),
 
                     // get margins, if any; we need this because position() takes margins into account while offset()
                     // doesn't and so we need to compensate
@@ -215,6 +213,7 @@
                         position:   'fixed',
                         left:       offset.left,
                         top:        offset.top,
+                        width:      width,
                         zIndex:     plugin.settings.z_index
 
                     // add a class indicating that the element is pinned
@@ -223,24 +222,13 @@
                 // if element is not "hard" pinned
                 else {
 
-                    // set element's default properties
-                    $element.css({
-
-                        zIndex: plugin.settings.z_index
-
-                    // remove the class indicating that the element is pinned
-                    }).removeClass(plugin.settings.class_name);
-
                     // we generate a unique namespace for each element of each instance of the plugin
                     // we do this so that we can easily unbind them without affecting other elements
                     // and instances of the plugin
                     proxy = '.Zebra_Pin_' + uniqueid + '_' + index;
 
-                    // unbind a previously set callback function (if any)
-                    $window.off('scroll' + proxy)
-
-                    // when the page is scrolled
-                    .on('scroll' + proxy, function() {
+                    // unbind a previously set handler and attach a new one
+                    $window.off('scroll' + proxy).on('scroll' + proxy, function() {
 
                         // get scrolled amount
                         var scroll = $window.scrollTop();
@@ -251,32 +239,64 @@
                             // the user scrolled past the element's top (minus "top_spacing")
                             scroll >= offset.top - plugin.settings.top_spacing &&
 
-                            // the element has no parent, or the element needs to be contained inside its parent's boundaries
-                            // and the element is currently inside its parent's boundaries
-                            (!plugin.settings.contain || (scroll <= container_offset.top + container_height - plugin.settings.top_spacing - height - plugin.settings.bottom_spacing)) &&
+                            // AND
+                            (
 
-                            // element's position is not already set to "fixed"
-                            $element.css('position') !== 'fixed'
+                                // the element is not "contained"
+                                !plugin.settings.contain ||
+
+                                // OR the element is contained but its bottom didn't reach the container's bottom
+                                (scroll <= container_offset.top + container_height - plugin.settings.top_spacing - height - plugin.settings.bottom_spacing)
+
+                            // AND
+                            ) && (
+
+                                // the element does not have the class indicating that it is pinned
+                                !$element.hasClass(plugin.settings.class_name) ||
+
+                                // OR the element has the class indicating that it is pinned, but it also contains the
+                                // "Zebra_Pin_Contained" meaning that the user is now scrolling upwards and that the
+                                // element's bottom is *not* touching its container's bottom anymore
+                                $element.hasClass('Zebra_Pin_Contained')
+
+                            )
 
                         ) {
 
-                            // set element's CSS properties
-                            $element.css({
+                            // if element is *not* contained and at the bottom of its container
+                            if (!$element.hasClass('Zebra_Pin_Contained')) {
 
+                                // create a clone of the element, insert it right after the original element and make it invisible
+                                // we do this so that we don't break the layout by removing the pinned element from the DOM
+                                $element.clone().addClass('Zebra_Pin_Clone').insertAfter($element).css('visibility', 'hidden');
+
+                                // save the element's "style" attribute as we are going to modify it
+                                // and add class indicating that the element is pinned
+                                $element.data('ztt_previous_style', $element.attr('style')).addClass(plugin.settings.class_name);
+
+                                // if a callback function exists for when pinning an element
+                                if (plugin.settings.onPin && typeof plugin.settings.onPin === 'function')
+
+                                    // execute the callback function and pass as arguments the scrolled amount, the element
+                                    // the plugin is attached to, and the index of the element from the list of elements the
+                                    // plugin is attached to
+                                    plugin.settings.onPin(offset.top - plugin.settings.top_spacing, $element, index);
+
+                            // if the user is now scrolling upwards and a "contained" element's bottom is *not* touching
+                            //  its container's bottom anymore
+                            } else
+
+                                // remove this class
+                                $element.removeClass('Zebra_Pin_Contained');
+
+                            // set the element's CSS properties
+                            $element.css({
                                 position:   'fixed',
                                 left:       offset.left,
-                                top:        plugin.settings.top_spacing
-
-                            // add a class indicating that the element is pinned
-                            }).addClass(plugin.settings.class_name);
-
-                            // if a callback function exists for when pinning an element
-                            if (plugin.settings.onPin && typeof plugin.settings.onPin === 'function')
-
-                                // execute the callback function and pass as arguments the scrolled amount, the element
-                                // the plugin is attached to, and the index of the element from the list of elements the
-                                // plugin is attached to
-                                plugin.settings.onPin(offset.top - plugin.settings.top_spacing, $element, index);
+                                top:        plugin.settings.top_spacing,
+                                width:      width,
+                                zIndex:     plugin.settings.z_index
+                            });
 
                         // else if
                         } else if (
@@ -284,20 +304,16 @@
                             // the user scrolled up past the element's top (minus "top_spacing")
                             scroll < offset.top - plugin.settings.top_spacing &&
 
-                            // element's position is not already set to "absolute"
-                            $element.css('position') !== 'absolute'
+                            // and the element was pinned
+                            $element.hasClass(plugin.settings.class_name)
 
                         ) {
 
-                            // set element's CSS properties
-                            $element.css({
+                            // remove the clone element
+                            $element.next('.Zebra_Pin_Clone').remove();
 
-                                position:   'absolute',
-                                left:       position.left,
-                                top:        position.top
-
-                            // remove the class indicating that the element is pinned
-                            }).removeClass(plugin.settings.class_name);
+                            // reset the element's original "style" attribute and remove the class indicating that the element is pinned
+                            $element.attr('style', $element.data('ztt_previous_style') || '').removeClass(plugin.settings.class_name);
 
                             // if a callback function exists for when unpinning an element
                             if (plugin.settings.onUnpin && typeof plugin.settings.onUnpin === 'function')
@@ -316,10 +332,32 @@
                             // the user scrolled past the container element's bottom
                             scroll >= container_offset.top + container_height - plugin.settings.top_spacing - height - plugin.settings.bottom_spacing &&
 
-                            // element's position is not already set to "absolute"
-                            $element.css('position') !== 'absolute'
+                            // the element is missing the class indicating that it reached the container element's bottom
+                            !$element.hasClass('Zebra_Pin_Contained')
 
                         ) {
+
+                            // if we didn't have the chance to initialize the pin
+                            // (when the page doesn't start at the top)
+                            if (!$element.hasClass(plugin.settings.class_name)) {
+
+                                // create a clone of the element, insert it right after the original element and make it invisible
+                                // we do this so that we don't break the layout by removing the pinned element from the DOM
+                                $element.clone().addClass('Zebra_Pin_Clone').insertAfter($element).css('visibility', 'hidden');
+
+                                // save the element's "style" attribute as we are going to modify it
+                                // and add class indicating that the element is pinned
+                                $element.data('ztt_previous_style', $element.attr('style')).addClass(plugin.settings.class_name);
+
+                                // if a callback function exists for when pinning an element
+                                if (plugin.settings.onPin && typeof plugin.settings.onPin === 'function')
+
+                                    // execute the callback function and pass as arguments the scrolled amount, the element
+                                    // the plugin is attached to, and the index of the element from the list of elements the
+                                    // plugin is attached to
+                                    plugin.settings.onPin(offset.top - plugin.settings.top_spacing, $element, index);
+
+                            }
 
                             // set element's CSS properties
                             $element.css({
@@ -328,16 +366,8 @@
                                 left:       position.left,
                                 top:        container_height - height - plugin.settings.bottom_spacing - plugin.settings.bottom_spacing
 
-                            // remove the class indicating that the element is pinned
-                            }).removeClass(plugin.settings.class_name);
-
-                            // if a callback function exists for when unpinning an element
-                            if (plugin.settings.onUnpin && typeof plugin.settings.onUnpin === 'function')
-
-                                // execute the callback function and pass as arguments the scrolled amount, the element
-                                // the plugin is attached to, and the index of the element from the list of elements the
-                                // plugin is attached to
-                                plugin.settings.onUnpin(container_offset.top + container_height - height - plugin.settings.bottom_spacing, $element, index);
+                            // add a class indicating that the element reached the container element's bottom
+                            }).addClass('Zebra_Pin_Contained');
 
                         }
 
@@ -351,6 +381,8 @@
             });
 
         };
+
+        plugin.settings = {};
 
         // off we go!
         _init();
