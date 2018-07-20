@@ -1,31 +1,28 @@
 /**
  *  Zebra_Pin
  *
- *  Zebra_Pin is a lightweight (2KB minified, ~800 bytes gzipped) and adaptive (things work as expected when the browser
+ *  Zebra_Pin is a lightweight (2.5KB minified, ~800 bytes gzipped) and adaptive (things work as expected when the browser
  *  window is resized) jQuery plugin for pinning elements to the page or to a container element, so that pinned elements
- *  stay visible even if the user scrolls the page. This type of elements are also referred to as "fixed position elements"
- *  or "sticky elements".
+ *  remain visible when they are about to be scrolled out of view. This type of elements are also referred to as "fixed
+ *  position elements" or "sticky elements".
  *
  *  Use it to create sticky sidebars, sticky navigation, sticky headers and footers, or anything else you feel the need
  *  to make it stick to the page while the user scrolls.
  *
  *  You can have "hard" pinned elements - elements are pinned to their initial position and stay there, elements that
- *  become pinned only when the user scrolls to them, pinned elements that move only inside their parent element.
+ *  become pinned when they are about to be scrolled out of view as well as pinned elements that can move only inside
+ *  their parent element's boundaries.
  *
- *  When elements become pinned a CSS class will be added to them, as specified by the plugin's "class_name" property.
+ *  Pinned elements are added a user-defined CSS class so you can adjust their looks when pinned. Additionally, custom
+ *  events are fired when elements become pinned/unpinned giving you even more power for customizing the result.
  *
- *  Also, custom events are fired when elements are pinned/unpinned giving you even more power for customizing the result.
+ *  Works in pretty much any browser - Firefox, Chrome, Safari, Edge, Opera and Internet Explorer 7+
  *
- *  Note that this plugin will alter the target element(s) "position" property to "absolute" and/or "fixed", depending
- *  on the situation, so, before enabling the plugin, make sure that this will not affect your page's layout.
- *
- *  Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 7+)
- *
- *  Read more {@link https://github.com/stefangabos/Zebra_Tooltips/ here}
+ *  Read more {@link https://github.com/stefangabos/Zebra_Pin/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.1.2 (last revision: May 30, 2017)
- *  @copyright  (c) 2013 - 2017 Stefan Gabos
+ *  @version    2.0.0 (last revision: July 20, 2018)
+ *  @copyright  (c) 2013 - 2018 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pin
  */
