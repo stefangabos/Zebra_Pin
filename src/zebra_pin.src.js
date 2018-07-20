@@ -69,8 +69,8 @@
                 bottom_spacing: 0,
 
                 //  the value of zIndex CSS property to be set for pinned elements
-                //  default is 9999
-                z_index: 9999,
+                //  default is 1000
+                z_index: 1000,
 
                 //  callback function to be executed when an element becomes pinned
                 //  the callback function receives 3 arguments:
