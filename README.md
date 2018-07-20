@@ -1,52 +1,51 @@
 <img src="https://raw.githubusercontent.com/stefangabos/zebrajs/master/docs/images/logo.png" alt="zebrajs" align="right">
 
-# Zebra_Pin
+# Zebra Pin &nbsp;[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Zebra%20Pin%20-%20a%20lightweight%20and%20adaptive%20jQuery%20plugin%20for%20pinning%20elements%20to%20the%20page%20or%20to%20container%20elementsurl=https://github.com/stefangabos/Zebra_Pin&via=stefangabos&hashtags=jquery,pin,sticky,pinned)
 
-*A lightweight jQuery plugin for pinning any element to the page or to a container element*
+*A lightweight jQuery plugin for pinning elements to the page or to container elements*
 
-[![npm](https://img.shields.io/npm/v/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin) [![Total](https://img.shields.io/npm/dt/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin) [![Monthly](https://img.shields.io/npm/dm/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin) [![License](https://img.shields.io/npm/l/zebra_pin.svg)](https://github.com/stefangabos/Zebra_Pin/blob/master/LICENSE.md)
+[![npm](https://img.shields.io/npm/v/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin) [![Total](https://img.shields.io/npm/dt/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin) [![Monthly](https://img.shields.io/npm/dm/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin) [![](https://data.jsdelivr.com/v1/package/npm/zebra_pin/badge?style=rounded)](https://www.jsdelivr.com/package/npm/zebra_pin) [![License](https://img.shields.io/npm/l/zebra_pin.svg)](https://github.com/stefangabos/Zebra_Pin/blob/master/LICENSE.md)
 
-Zebra_Pin is a lightweight (2KB minified, ~800 bytes gzipped) and adaptive (things work as expected when the browser window is resized) jQuery plugin for pinning elements to the page or to a container element, so that the pinned elements stay visible even if the user scrolls the page. This type of elements are also referred to as *fixed position elements* or *sticky elements*.
+Zebra_Pin is a lightweight (2.5KB minified, ~800 bytes gzipped) and adaptive (things work as expected when the browser window is resized) jQuery plugin for pinning elements to the page or to a container element, so that pinned elements remain visible when they are about to be scrolled out of view. This type of elements are also referred to as *fixed position elements* or *sticky elements*.
 
 Use it to create sticky sidebars, sticky navigation, sticky headers and footers, or anything else you feel the need to make it stick to the page while the user scrolls.
 
-You can have *hard* pinned elements - elements are pinned to their initial position and stay there, elements that become pinned only when the user scrolls to them and pinned elements whose movement is restricted to their container element's size.
+You can have "hard" pinned elements - elements are pinned to their initial position and stay there, elements that become pinned when they are about to be scrolled out of view, as well as pinned elements that can move only inside their parent element's boundaries.
 
-When elements become pinned a CSS class will be added to them, as specified by the plugin's *class_name* property.
+Pinned elements are added a user-defined CSS class so you can adjust their looks when pinned. Additionally, custom events are fired when elements become pinned/unpinned giving you even more power for customizing the result.
 
-Also, custom events are fired when elements are pinned/unpinned giving you even more power for customizing the result.
-
-Note that this plugin will alter the target element(s) "position" property to *absolute* and/or *fixed*, depending on the situation, so, before enabling the plugin, make sure that this will not affect your page's layout.
-
-Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 7+)
-
-## Support the development of this project
-
-[![Donate](https://img.shields.io/badge/Be%20kind%20%7C%20Donate%20$3%20with%20-%20PayPal%20-brightgreen.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K8HEUNMPV65R4)
+Works in pretty much any browser - Firefox, Chrome, Safari, Edge, Opera and Internet Explorer 7+
 
 ## Features
 
  - elements can be pinned inside a container element, not just to the page
- - custom events are fired when pinning/unpinning elements for more control
- - it is really small – it weights 2KB minified (~800 bytes gzipped) offering a very good ratio of features per used bytes
+ - pinned elements are added a user-defined CSS class so you can adjust their looks when pinned
+ - custom events are fired when elements become pinned/unpinned giving you even more power for customizing the result
+ - it is really small – it weights 2.5KB minified (~800 bytes gzipped) offering a very good ratio of features per used bytes
  - it's cross-browser – works in every major browser and IE7+
+
+## Demo
+
+See the [demos](http://stefangabos.github.io/Zebra_Pin/)
 
 ## Requirements
 
-Zebra_Pin has no dependencies other than jQuery 1.7+
+Zebra Pin has no dependencies other than jQuery 1.7+
 
 ## Installation
 
-Zebra_Pin is available as a [npm package](https://www.npmjs.com/package/zebra_pin). To install it use:
+Zebra Pin is available as a [npm package](https://www.npmjs.com/package/zebra_pin). To install it use:
 
-```
-npm install zebra_pin
+```bash
+# the "--save" argument adds the plugin as a dependency in packages.json
+npm install zebra_pin --save
 ```
 
-Zebra_Pin is also available as a [Bower package](http://bower.io/). To install it use:
+Zebra Pin is also available as a [Bower package](http://bower.io/). To install it use:
 
-```
-bower install zebra_pin
+```bash
+# the "--save" argument adds the plugin as a dependency in bower.json
+bower install zebra_pin --save
 ```
 
 ## How to use
@@ -54,25 +53,28 @@ bower install zebra_pin
 First, load the latest version of jQuery from a CDN and provide a fallback to a local source, like:
 
 ```html
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script>window.jQuery || document.write('<script src="path/to/jquery-3.2.1.js"><\/script>')</script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="path/to/jquery-3.3.1.js"><\/script>')</script>
 ```
 
-Load the Zebra_Pin jQuery plugin:
+Load the Zebra Pin jQuery plugin:
 
 ```html
 <script src="path/to/zebra_pin.min.js"></script>
 ```
 
-Alternatively, you can load Zebra_Pin from [JSDelivr CDN](https://www.jsdelivr.com/) like this:
-```javascript
-// for the most recent version
-<script src="https://cdn.jsdelivr.net/gh/stefangabos/Zebra_Pin/dist/zebra_pin.min.js"></script>
+Alternatively, you can load Zebra Pin from [JSDelivr CDN](https://www.jsdelivr.com/package/npm/zebra_pin) like this:
 
-// for a specific version
-<script src="https://cdn.jsdelivr.net/gh/stefangabos/Zebra_Pin@1.1.1/dist/zebra_pin.min.js"></script>
+```html
+<!-- for the most recent version, not recommended in production -->
+<script
+    src="https://cdn.jsdelivr.net/npm/zebra_pin@latest/dist/zebra_pin.min.js"></script>
 
-// replacing "min" with "src" will serve you the non-compressed version
+<!-- for a specific version -->
+<script
+    src="https://cdn.jsdelivr.net/npm/zebra_pin@2.0.0/dist/zebra_pin.min.js"></script>
+
+<!-- replacing "min" with "src" will serve you the non-compressed version -->
 ```
 
 Now, within the DOM-ready event, pin elements to page or to a container:
@@ -81,7 +83,7 @@ Now, within the DOM-ready event, pin elements to page or to a container:
 $(document).ready(function() {
 
     // easiest way to get started: when the user scrolls to the element
-    // the element will become pinned (sticky) and will scroll with the page
+    // the element will become pinned (sticky)
     new $.Zebra_Pin($('#element'));
 
     // in the example above, the element will be at the very top edge of the
@@ -125,26 +127,25 @@ $(document).ready(function() {
     <tr>
         <td valign="top"><code>class_name</code></td>
         <td valign="top"><em>string</em></td>
-        <td valign="top">Zebra_Pin</td>
-        <td valign="top">Class to add to the element when it is "sticky"</td>
+        <td valign="top">"Zebra_Pin"</td>
+        <td valign="top">CSS class to be added to the element when it becomes pinned</td>
     </tr>
     <tr>
         <td valign="top"><code>contain</code></td>
         <td valign="top"><em>boolean</em></td>
-        <td valign="top">FALSE</td>
+        <td valign="top">false</td>
         <td valign="top">
             Specifies whether the pinned element should be restricted to its parent element's boundaries or not.<br><br>
-            <blockquote>The container element <strong>must</strong> have the <code>position</code> CSS property set to
-            something other than <strong>static</strong></blockquote>
+            <blockquote>The container element <strong>must</strong> have its <code>position</code> set to something other than the default <code>static</code></blockquote>
         </td>
     </tr>
     <tr>
         <td valign="top"><code>hard</code></td>
         <td valign="top"><em>boolean</em></td>
-        <td valign="top">FALSE</td>
+        <td valign="top">false</td>
         <td valign="top">
             Specifies whether the element should be "hard" pinned (the element is pinned to its position from the
-            beginning), or become pinned only when it is about to be hidden.
+            beginning), or become pinned only when it is about to go out of view.
         </td>
     </tr>
     <tr>
@@ -152,8 +153,8 @@ $(document).ready(function() {
         <td valign="top"><em>integer</em></td>
         <td valign="top">0</td>
         <td valign="top">
-            Margin, in pixels, from the container element's (or the browser window's) top.<br>
-            This only works if the "hard" property is set to FALSE.
+            Distance, in pixels, from the browser window's top (or the container element's top, when the element is contained to its parent element's boundaries) from which the element should become pinned.<br>
+            This only works if the <code>hard</code> property is set to <code>false</code>.
         </td>
     </tr>
     <tr>
@@ -161,14 +162,14 @@ $(document).ready(function() {
         <td valign="top"><em>integer</em></td>
         <td valign="top">0</td>
         <td valign="top">
-            Margin, in pixels, from the container element's bottom<br>
-            This only works if the "hard" property is set to FALSE and it is used only if the "contain" property is TRUE
+            Distance, in pixels, from the containing parent element's bottom which the pinned element must not exceed.<br>
+            This only works if the <code>hard</code> property is set to <code>false</code> and the <cpde>contain</code> property is set to <code>true</code>
         </td>
     </tr>
     <tr>
         <td valign="top"><code>z_index</code></td>
         <td valign="top"><em>integer</em></td>
-        <td valign="top">9999</td>
+        <td valign="top">1000</td>
         <td valign="top">
             The value of zIndex CSS property to be set for pinned elements
         </td>
@@ -189,7 +190,7 @@ $(document).ready(function() {
     <tr>
         <td valign="top"><code>onPin</code></td>
         <td valign="top">
-            Callback function to be executed when an element is pinned<br>
+            Callback function to be executed when an element becomes pinned<br>
             The callback function receives 3 arguments:<br><br>
             <ul>
                 <li>the vertical position, relative to the document, where the event occurred</li>
@@ -201,7 +202,7 @@ $(document).ready(function() {
     <tr>
         <td valign="top"><code>onUnpin</code></td>
         <td valign="top">
-            Callback function to be executed when an element is unpinned<br>
+            Callback function to be executed when an element becomes unpinned (reverts to its original state)<br>
             The callback function receives 3 arguments:<br><br>
             <ul>
                 <li>the vertical position, relative to the document, where the event occurred</li>
@@ -236,6 +237,12 @@ var zp = new $.Zebra_Pin($('#element'), {
 zp.update();
 ```
 
-## Demo
+## Support the development of this project
 
-See the [demos](http://stefangabos.github.io/Zebra_Pin/)
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K8HEUNMPV65R4)
+
+## Sponsors
+
+Cross browser/device testing is done with
+
+[![BrowserStack](https://github.com/stefangabos/Zebra_Dialog/raw/master/examples/browserstack.png)](https://www.browserstack.com/)
