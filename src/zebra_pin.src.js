@@ -35,6 +35,9 @@
 
     $.Zebra_Pin = function(elements, options) {
 
+        // so you can tell the version number even if all you have is the minified source
+        this.version = '2.0.0';
+
         var defaults = {
 
                 //  class to add to the element when it is "sticky"
