@@ -10,7 +10,7 @@
  *  to make it stick to the page while the user scrolls.
  *
  *  You can have "hard" pinned elements - elements are pinned to their initial position and stay there, elements that
- *  become pinned when they are about to be scrolled out of view as well as pinned elements that can move only inside
+ *  become pinned when they are about to be scrolled out of view, as well as pinned elements that can move only inside
  *  their parent element's boundaries.
  *
  *  Pinned elements are added a user-defined CSS class so you can adjust their looks when pinned. Additionally, custom
