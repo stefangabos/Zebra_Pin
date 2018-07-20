@@ -18,7 +18,7 @@ module.exports = function(grunt) {
             done: {
                 options: {
                     title: 'Grunt ',
-                    message: 'All taks were successfully completed!'
+                    message: 'All tasks were successfully completed!'
                 }
             }
         },
