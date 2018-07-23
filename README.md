@@ -26,7 +26,7 @@ Works in pretty much any browser - Firefox, Chrome, Safari, Edge, Opera and Inte
 
 ## Demo
 
-See the [demos](http://stefangabos.github.io/Zebra_Pin/)
+See the [demos](https://stefangabos.github.io/Zebra_Pin/)
 
 ## Requirements
 
@@ -41,7 +41,7 @@ Zebra Pin is available as a [npm package](https://www.npmjs.com/package/zebra_pi
 npm install zebra_pin --save
 ```
 
-Zebra Pin is also available as a [Bower package](http://bower.io/). To install it use:
+Zebra Pin is also available as a [Bower package](https://bower.io/). To install it use:
 
 ```bash
 # the "--save" argument adds the plugin as a dependency in bower.json
