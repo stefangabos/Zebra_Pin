@@ -17,15 +17,14 @@
     "email": "contact@stefangabos.ro"
   },
   "keywords": [
-    "jquery-plugin",
-    "ecosystem:jquery",
     "fixed",
     "sticky",
     "pin",
     "scrolling",
     "position",
     "floating",
-    "ui"
+    "navigation",
+    "sidebar"
   ],
   "license": "LGPL-3.0",
   "devDependencies": {
