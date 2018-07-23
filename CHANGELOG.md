@@ -1,3 +1,11 @@
+## version 2.0.0 (July 23, 2018)
+
+- pinned elements are not taken out of DOM when becoming pinned; instead, an invisible clone element is created so that layout doesn't break.
+- fixed bug where elements without explicit width would break when becoming pinned
+- fixed bug where elements pinned to a container element would incorrectly fire the callback events
+- completely rewritten examples
+- added version number as a public property - useful to find out the version number even if all you have is the minified source code
+
 ## version 1.1.2 (May 30, 2017)
 
 - fixed a bug with contained pins where things were not working as expected if the container element would have a position other than "static"
