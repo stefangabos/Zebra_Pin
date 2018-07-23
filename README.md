@@ -2,7 +2,7 @@
 
 # Zebra Pin &nbsp;[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Zebra%20Pin%20-%20a%20lightweight%20and%20adaptive%20jQuery%20plugin%20for%20pinning%20elements%20to%20the%20page%20or%20to%20container%20elementsurl=https://github.com/stefangabos/Zebra_Pin&via=stefangabos&hashtags=jquery,pin,sticky,pinned)
 
-*A lightweight jQuery plugin for pinning elements to the page or to container elements*
+*A lightweight jQuery plugin for creating sticky elements pinned to the page or to a container element*
 
 [![npm](https://img.shields.io/npm/v/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin) [![Total](https://img.shields.io/npm/dt/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin) [![Monthly](https://img.shields.io/npm/dm/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin) [![](https://data.jsdelivr.com/v1/package/npm/zebra_pin/badge?style=rounded)](https://www.jsdelivr.com/package/npm/zebra_pin) [![License](https://img.shields.io/npm/l/zebra_pin.svg)](https://github.com/stefangabos/Zebra_Pin/blob/master/LICENSE.md)
 

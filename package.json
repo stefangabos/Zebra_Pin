@@ -7,7 +7,7 @@
     "name": "Stefan Gabos",
     "email": "contact@stefangabos.ro"
   },
-  "description": "A lightweight jQuery plugin for pinning any element to the page or to a container element",
+  "description": "A lightweight jQuery plugin for creating sticky elements pinned to the page or to a container element",
   "repository": {
     "type": "git",
     "url": "https://github.com/stefangabos/Zebra_Pin.git"
