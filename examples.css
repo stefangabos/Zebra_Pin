@@ -1,29 +1,47 @@
+body {
+    font-family: Tahoma, Helvetica, Arial, sans-serif;
+}
+
 .syntaxhighlighter {
+    padding: .5em 0;
+}
+
+.sticky-navigation,
+.sticky-navigation-highlight,
+.sticky-navigation-callbacks,
+.sticky-navigation-nocallbacks {
+    background: #FFF;
     padding: 1em 0;
 }
 
-.pin { padding: 1em }
-
-@media (min-width: 1200px) {
-    .pin {
-        width: 165px;
-    }
+.sticky-navigation-highlight.Zebra_Pin,
+.sticky-navigation-callbacks.Zebra_Pin,
+.sticky-navigation-nocallbacks.Zebra_Pin {
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 12px 6px -6px rgba(0, 0, 0, .1);
+    transition: box-shadow .25s linear;
 }
 
-@media (max-width: 1199px) {
-    .pin {
-        width: 132px;
-    }
+.sticky-navigation-nocallbacks.Zebra_Pin li:nth-child(3) {
+    display: none;
 }
 
-@media (max-width: 991px) {
-    .pin {
-        width: 95px;
-    }
+.sticky-navigation-callbacks li:nth-child(4),
+.sticky-navigation-nocallbacks.Zebra_Pin li:nth-child(4) {
+    background: #c09853;
 }
 
-.pin1-container { background: #2980b9; height: 500px }
+.sticky-navigation-nocallbacks.Zebra_Pin li:nth-child(4) {
+    display: block !important;
+}
 
-#pin1 { background: #27AE60 }
-#pin2 { background: #27AE60 }
-#pin3 { background: #27AE60 }
+.sticky-navigation-callbacks li:nth-child(4) a,
+.sticky-navigation-nocallbacks.Zebra_Pin li:nth-child(4) a {
+    color: #FFF;
+}
+
+.top {
+    position: relative;
+    margin-left: 10px;
+    top: -2px;
+}

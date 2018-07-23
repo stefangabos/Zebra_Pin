@@ -4,15 +4,27 @@
 
     <head>
 
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-431275-9"></script>
+        <script>
+        if (document.location.hostname !== '' && document.location.hostname.indexOf('localhost') !== 0) {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-431275-9');
+        }
+        </script>
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Zebra_Pin is a lightweight (2KB minified, ~800 bytes gzipped) and adaptive (things work as expected when the browser window is resized) jQuery plugin for pinning elements to the page or to a container element, so that the pinned elements stay visible even if the user scrolls the page. This type of elements are also referred to as fixed position elements or sticky elements.">
-        <title>Zebra_Pin - A lightweight jQuery plugin for pinning any element to the page or to a container element</title>
+        <meta name="description" content="A lightweight and adaptive jQuery plugin for pinning any element to the page or to a container element">
+        <link rel="shortcut icon" href="favicon.ico">
+        <title>Zebra Pin - A lightweight jQuery plugin for pinning elements to the page or to container elements</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCoreDefault.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/united/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCoreDefault.min.css" />
 
         <link rel="stylesheet" href="examples.css" type="text/css">
 
@@ -21,7 +33,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushXml.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushCss.min.js"></script>
 
-        <script type="text/javascript">
+        <script>
             SyntaxHighlighter.defaults['toolbar'] = false;
             SyntaxHighlighter.all();
         </script>
@@ -30,130 +42,461 @@
 
     <body>
 
-        <a href="https://github.com/stefangabos/Zebra_Pin"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Zebra Pin</h1>
+                <p>a lightweight jQuery plugin for pinning elements to the page or to container elements</p>
+                <hr>
+                <p>
+                    <a href="https://github.com/stefangabos/Zebra_Pin/archive/master.zip" class="btn btn-primary btn-lg" role="button" style="text-decoration: none">Download</a>
+                    <a href="https://github.com/stefangabos/Zebra_Pin" class="btn btn-primary btn-lg" role="button" style="text-decoration: none">View on GitHub</a>
+                </p>
+            </div>
+        </div>
 
         <div class="container">
 
             <div class="row">
 
-                <div class="page-header">
-                    <h1>Zebra_Pin Demos</h1>
-                </div>
-
-                <p>Zebra_Pin is a lightweight (2KB minified, ~800 bytes gzipped) and adaptive (things work as expected
-                when the browser window is resized) jQuery plugin for pinning elements to the page or to a container
-                element, so that the pinned elements stay visible even if the user scrolls the page. This type of elements
-                are also referred to as fixed position elements or sticky elements.</p>
-
-                <br>
-
-                <div class="col-xs-2">
-                    <div class="pin1-container" style="position: relative; overflow: hidden">
-                        <div class="pin" id="pin1">
-                            <h4>Pin #1</h4>
-                            <p>I become pinned when I am at 10px from the window's top *and* I am constrained to my parent element's height.</p>
-                        </div>
-                        &nbsp;
-                    </div>
-                    <br><p><button class="btn btn-primary btn-block">Toggle height</button></p>
-                </div>
-
-                <div class="col-xs-2">
-                    <div class="pin" id="pin2">
-                        <h4>Pin #2</h4>
-                        <p>I become pinned when I am at 10px from the window's top and I'll scroll with the document from that point onwards.</p>
-                    </div>
-                </div>
-
-                <div class="col-xs-2">
-                    <div class="pin" id="pin3">
-                        <h4>Pin #3</h4>
-                        <p>I am "hard" pinned: I am pinned to my initial position, and I stay like that forever.</p>
+                <div class="col-xs-3">
+                    <div class="well sticky-sidebar">
+                        <p><strong>Menu</strong></p>
+                        1. <a href="#sticky-sidebar">Sticky sidebar</a><br>
+                        2. <a href="#sticky-navigation">Sticky navigation</a><br>
+                        3. <a href="#contained">Pin to parent container</a><br>
+                        4. <a href="#pinning-event">The pinning event</a><br>
+                        5. <a href="#callbacks">Callbacks</a>
                     </div>
                 </div>
 
                 <div class="col-xs-6">
-                <div class="content">
 
-                    <p><strong>Pin #1</strong></p>
+                    <p>
+                        <strong>Zebra Pin</strong> is a lightweight (2.5KB minified, ~800 bytes gzipped) and adaptive
+                        (things work as expected when the browser window is resized) jQuery plugin for pinning elements
+                        to the page or to a container element, so that pinned elements remain visible when they are about
+                        to be scrolled out of view. This type of elements are also referred to as <em>fixed position
+                        elements</em> or <em>sticky elements</em>.
+                    </p>
+
+                    <h3><a name="sticky-sidebar"></a><strong>1.</strong> Sticky sidebar</h3>
+
+                    <p>
+                        A sticky sidebar is an element whose purpose it to help users navigate the various sections of a
+                        page by always staying pinned inside the viewport. The main difference between this
+                        and a <a href="#sticky-navigation">sticky menu</a> is that a sticky sidebar occupies an entire
+                        vertical section of a page, while a sticky menu may appear anywhere in the content and become
+                        sticky once the user scrolls to it. The menu of the left is a <em>sticky sidebar</em>. It will
+                        stay inside the viewport as you scroll down.
+                    </p>
+
                     <pre class="brush:js">
-                    var pin = new $.Zebra_Pin($('#pin1'), {
+                    new Zebra_Tooltip($('.sticky-sidebar'), {
+
+                        // we'll also add some top spacing so that the menu
+                        // doesn't stay "glued" to the top
+                        top_spacing: 15
+
+                    });
+                    </pre>
+
+                    <a href="#top" class="pull-right clearfix top small">To the top</a>
+
+                    <hr>
+
+                    <!-- =========================================================================================== -->
+
+                    <h3><a name="sticky-navigation"></a><strong>2.</strong> Sticky navigation</h3>
+
+                    <p>
+                        Sticky, or fixed, navigation is basically a website menu that is pinned into place so that it
+                        stays inside the viewport when the user scrolls down the page. Therefore, the menu is accessible
+                        from anywhere on the page without having to scroll up to it.
+                    </p>
+
+                    <div style="position: relative">
+
+                        <ul class="nav nav-pills sticky-navigation">
+                            <li class="active"><a href="javascript: void(0)">Option 1</a></li>
+                            <li><a href="javascript: void(0)">Option 2</a></li>
+                            <li><a href="javascript: void(0)">Option 3</a></li>
+                        </ul>
+
+                        <br><p><strong>The HTML</strong></p>
+
+                        <pre class="brush:html">
+                        <!--
+                            since we're using Bootstrap 3 on this page,
+                            we'll use Bootstrap's existing classes for our example
+                        -->
+                        <ul class="nav nav-pills sticky-navigation">
+                            <li class="active">
+                                <a href="javascript: void(0)">
+                                    Option 1
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0)">
+                                    Option 2
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0)">
+                                    Option 3
+                                </a>
+                            </li>
+                        </ul>
+                        </pre>
+
+                        <p><strong>The CSS</strong></p>
+
+                        <pre class="brush:css">
+                        .sticky-navigation {
+                            background: #FFF;
+                            padding: 1em 0;
+                        }
+                        </pre>
+
+                        <blockquote><small>
+                            I don't really need to show you HTML or CSS as you can look into the files (or inspect) yourself,
+                            but I need content to be <em>scrolled</em> and these count as content and somehow feel more
+                            natural than <em>lorem ipsum</em>...
+                        </small></blockquote>
+
+                        <p><strong>The JavaScript</strong></p>
+
+                        <a name="contained"></a>
+
+                        <pre class="brush:js">
+                        new Zebra_Tooltip($('.sticky-navigation'));
+                        </pre>
+
+                        <a href="#top" class="pull-right clearfix top small">To the top</a>
+
+                        <hr>
+
+                        <!-- =========================================================================================== -->
+
+                        <h3><strong>3.</strong> Pin elements to parent container</h3>
+
+                        <p>
+                            Pinned element's movement can be confined to the <strong>direct&nbsp;parent</strong> element's
+                            height. For this example we'll use the sticky menu that we created in the previous example and
+                            which was actually initialized with the <code>contain</code> property set to <code>true</code>.
+                        </p>
+
+                        <pre class="brush:js">
+                        new Zebra_Tooltip($('.sticky-navigation'), {
                             contain: true
-                        }),
-                        $container = $('.pin1-container'),
-                        additional_height = -300;
+                        });
+                        </pre>
 
-                    $('button').on('click', function() {
-                        additional_height = additional_height * -1;
-                        $container.css('height', '+=' + additional_height);
-                        pin.update();
-                    });
+                        <blockquote><small>
+                            The sticky navigation that we created at the <a href="#sticky-navigation">previous example</a>
+                            is contained in a parent <code>&lt;div></code> that ends right after this notice. Therefore,
+                            after this point, the sticky menu will stop following you as you scroll down.
+                        </small></blockquote>
+
+                    </div>
+
+                    <a href="#top" class="pull-right clearfix top small">To the top</a>
+
+                    <hr>
+
+                    <!-- =========================================================================================== -->
+
+                    <h3><a name="pinning-event"></a><strong>4.</strong> The pinning event</h3>
+
+                    <p>
+                        When elements become pinned a CSS class is added to the element. You can make use of this and
+                        alter the layout of the element when pinned. By default, the CSS class added is <code>Zebra_Pin</code>
+                        but it can be changed to anything else using the <code>class_name</code> property.
+                    </p>
+
+                    <p>
+                        In the previous two examples you may have noticed that the sticky navigation does not really stand
+                        out as being a <em>menu</em>. Let's fix this using a little CSS.
+                    </p>
+
+                    <div style="position: relative">
+
+                        <ul class="nav nav-pills sticky-navigation-highlight">
+                            <li class="active"><a href="javascript: void(0)">Option 1</a></li>
+                            <li><a href="javascript: void(0)">Option 2</a></li>
+                            <li><a href="javascript: void(0)">Option 3</a></li>
+                        </ul>
+
+                        <p><strong>The HTML</strong></p>
+
+                        <pre class="brush:html">
+                        <!--
+                            since we're using Bootstrap 3 on this page,
+                            we'll use Bootstrap's existing classes for our example
+                        -->
+                        <ul class="nav nav-pills sticky-navigation-highlight">
+                            <li class="active">
+                                <a href="javascript: void(0)">
+                                    Option 1
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0)">
+                                    Option 2
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0)">
+                                    Option 3
+                                </a>
+                            </li>
+                        </ul>
+                        </pre>
+
+                        <p><strong>The CSS</strong></p>
+
+                        <pre class="brush:css">
+                        .sticky-navigation-highlight {
+                            background: #FFF;
+                            padding: 1em 0;
+                        }
+
+                        /* once pinned */
+                        .sticky-navigation-highlight.Zebra_Pin {
+                            border-bottom: 1px solid #ccc;
+                            box-shadow: 0 12px 6px -6px rgba(0, 0, 0, .1);
+                            transition: box-shadow .25s linear;
+                        }
+                        </pre>
+
+                        <p><strong>The JavaScript</strong></p>
+
+                        <pre class="brush:js">
+                        new Zebra_Tooltip($('.sticky-navigation-highlight'));
+                        </pre>
+
+                    </div>
+
+                    <a href="#top" class="pull-right clearfix top small">To the top</a>
+
+                    <hr>
+
+                    <!-- =========================================================================================== -->
+
+                    <h3><a name="callbacks"></a><strong>5.</strong> Callbacks</h3>
+
+                    <p>
+                        Sometimes, you may want to perform actions that cannot be done using only CSS. For this example
+                        we'll do something that can easily be done through CSS but we'll overcomplicate it and make it
+                        using JavaScript in order to showcase how callbacks work.
+                    </p>
+
+                    <p>
+                        Once we scroll to the sticky menu, we'll remove an option and add a new one and, instead of
+                        doing it with CSS, we'll use the plugin's <code>onPin</code> and <code>onUnpin</code> events.
+                    </p>
+
+                    <div style="position: relative">
+
+                        <ul class="nav nav-pills sticky-navigation-callbacks">
+                            <li class="active"><a href="javascript: void(0)">Option 1</a></li>
+                            <li><a href="javascript: void(0)">Option 2</a></li>
+                            <li><a href="javascript: void(0)">How to dissappear completely</a></li>
+                            <li class="hidden"><a href="javascript: void(0)">I was hidden, babe</a></li>
+                        </ul>
+
+                        <p><strong>The HTML</strong></p>
+
+                        <pre class="brush:html">
+                        <!--
+                            since we're using Bootstrap 3 on this page,
+                            we'll use Bootstrap's existing classes for our example
+                        -->
+                        <ul class="nav nav-pills sticky-navigation-callbacks">
+                            <li class="active">
+                                <a href="javascript: void(0)">
+                                    Option 1
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0)">
+                                    Option 2
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0)">
+                                    How to dissappear completely
+                                </a>
+                            </li>
+                            <li class="hidden"> <!-- hidden, by default -->
+                                <a href="javascript: void(0)">
+                                    I was hidden, babe
+                                </a>
+                            </li>
+                        </ul>
+                        </pre>
+
+                        <p><strong>The CSS</strong></p>
+
+                        <p>
+                            We'll use the the CSS from the <a href="#pinning-event">previous example</a> plus the following:
+                        </p>
+
+                        <pre class="brush:css">
+                        .sticky-navigation-callbacks li:nth-child(4) {
+                            background: #c09853;
+                        }
+
+                        .sticky-navigation-callbacks li:nth-child(4) a {
+                            color: #FFF;
+                        }
+                        </pre>
+
+                        <p><strong>The JavaScript</strong></p>
+
+                        <pre class="brush:js">
+                        new Zebra_Tooltip($('.sticky-navigation-callbacks'), {
+
+                            // when pinning
+                            onPin: function(scroll, $element) {
+
+                                // cache selector
+                                var items = $('li', $element);
+
+                                // hide the 3rd menu item
+                                // (eq is 0-based)
+                                items
+                                    .eq(2)
+                                    .addClass('hidden');
+
+                                // remove the "hidden" class
+                                // from the 4th menu item
+                                items
+                                    .eq(3)
+                                    .removeClass('hidden');
+
+                            },
+
+                            // when un-pinning
+                            onUnpin: function(scroll, $element) {
+
+                                // cache selector
+                                var items = $('li', $element);
+
+                                // remove the "hidden" class
+                                // from the 3th menu item
+                                // (eq is 0-based)
+                                items
+                                    .eq(2)
+                                    .removeClass('hidden');
+
+                                // hide the 4th menu item
+                                items
+                                    .eq(3)
+                                    .addClass('hidden');
+
+                            }
+
+                        });
+                        </pre>
+
+                    </div>
+
+                    <a href="#top" class="pull-right clearfix top small">To the top</a>
+
+                    <hr>
+
+                    <!-- =========================================================================================== -->
+
+                    <h3><a name="callbacks"></a><strong>5b.</strong> The pinning event (reprise)</h3>
+
+                    <p>Let's recreate the <a href="">previous example</a> using only CSS</p>
+
+                    <ul class="nav nav-pills sticky-navigation-nocallbacks">
+                        <li class="active"><a href="javascript: void(0)">Option 1</a></li>
+                        <li><a href="javascript: void(0)">Option 2</a></li>
+                        <li><a href="javascript: void(0)">How to dissappear completely</a></li>
+                        <li style="display: none"><a href="javascript: void(0)">I was hidden, babe</a></li>
+                    </ul>
+
+                    <p><strong>The HTML</strong></p>
+
+                    <pre class="brush:html">
+                    <!--
+                        since we're using Bootstrap 3 on this page,
+                        we'll use Bootstrap's existing classes for our example
+                    -->
+                    <ul class="nav nav-pills sticky-navigation-nocallbacks">
+                        <li class="active">
+                            <a href="javascript: void(0)">
+                                Option 1
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0)">
+                                Option 2
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0)">
+                                How to dissappear completely
+                            </a>
+                        </li>
+                        <li style="display: hidden"> <!-- hidden, by default -->
+                            <a href="javascript: void(0)">
+                                I was hidden, babe
+                            </a>
+                        </li>
+                    </ul>
                     </pre>
 
-                    <p><strong>Pin #2</strong></p>
+                    <p><strong>The CSS</strong></p>
+
+                    <p>
+                        We'll use the the CSS from a <a href="#pinning-event">previous example</a> plus the following:
+                    </p>
+
+                    <pre class="brush:css">
+                    .sticky-navigation-nocallbacks.Zebra_Pin li:nth-child(3) {
+                        display: none;
+                    }
+
+                    .sticky-navigation-nocallbacks li:nth-child(4) {
+                        background: #c09853;
+                        display: block !important;
+                    }
+
+                    .sticky-navigation-nocallbacks li:nth-child(4) a {
+                        color: #FFF;
+                    }
+                    </pre>
+
+                    <p><strong>The JavaScript</strong></p>
+
                     <pre class="brush:js">
-                    new $.Zebra_Pin($('#pin2'), {
-                        top_spacing: 10
-                    });
+                    new Zebra_Tooltip($('.sticky-navigation-nocallbacks'));
                     </pre>
 
-                    <p><strong>Pin #3</strong></p>
-                    <pre class="brush:js">
-                    new $.Zebra_Pin($('#pin3'), {
-                        hard: true
-                    });
-                    </pre>
+                    <a href="#top" class="pull-right clearfix top small">To the top</a>
 
-                    Completely leverage other's magnetic technologies without B2C e-commerce. Rapidiously implement backward-compatible portals after empowered imperatives. Globally revolutionize emerging paradigms through multifunctional internal or "organic" sources. Progressively integrate viral internal or "organic" sources rather than parallel action items. Collaboratively empower premium bandwidth without e-business core competencies.
+                    <hr>
 
-                    Energistically repurpose unique data with B2B catalysts for change. Progressively parallel task cost effective services without open-source markets. Conveniently leverage existing functionalized e-tailers with integrated growth strategies. Competently target leading-edge quality vectors for resource sucking e-tailers. Globally seize strategic meta-services and bleeding-edge products.
+                    <!-- =========================================================================================== -->
 
-                    Enthusiastically create B2B synergy before accurate data. Synergistically synergize e-business infrastructures after process-centric portals. Progressively benchmark impactful initiatives with alternative collaboration and idea-sharing. Holisticly enable goal-oriented methodologies via effective applications. Credibly engage just in time portals after focused relationships.
+                    <br><br><br>
 
-                    Objectively expedite intuitive methods of empowerment through technically sound deliverables. Authoritatively restore enterprise-wide channels via excellent interfaces. Completely re-engineer diverse relationships vis-a-vis e-business networks. Continually scale mission-critical resources and market positioning growth strategies. Continually impact extensible technologies vis-a-vis client-centered opportunities.
+                    <p class="text-center">copyright &copy; 2013 - 2018 <a href="https://github.com/stefangabos/">stefan gabos</a></p>
 
-                    Collaboratively architect covalent services before economically sound e-business. Dramatically architect highly efficient mindshare and fully researched models. Energistically leverage existing resource sucking "outside the box" thinking after an expanded array of communities. Compellingly actualize fully researched e-commerce rather than installed base functionalities. Compellingly productivate tactical ideas before transparent e-business.
+                    <br>
 
-                    Enthusiastically disintermediate sustainable outsourcing for vertical channels. Seamlessly procrastinate unique e-markets via enabled solutions. Enthusiastically repurpose state of the art action items whereas user-centric quality vectors. Synergistically transform integrated potentialities after team building data. Compellingly e-enable plug-and-play infomediaries through revolutionary benefits.
-
-                    Energistically strategize clicks-and-mortar core competencies with cross-unit niche markets. Intrinsicly underwhelm high-quality outsourcing after excellent total linkage. Uniquely synthesize corporate internal or "organic" sources without maintainable e-business. Compellingly incubate fully tested quality vectors vis-a-vis emerging vortals. Proactively develop reliable functionalities through adaptive functionalities.
-
-                    Appropriately seize magnetic testing procedures before compelling channels. Dynamically morph team building ROI before professional opportunities. Assertively recaptiualize emerging channels via progressive results. Competently recaptiualize market positioning innovation without integrated action items. Compellingly repurpose cross-unit growth strategies via proactive e-services.
-
-                    Energistically conceptualize cross functional functionalities whereas interoperable benefits. Objectively embrace virtual infrastructures for performance based networks. Rapidiously seize unique services vis-a-vis impactful paradigms. Continually simplify backend materials without global testing procedures. Synergistically morph fully researched total linkage without resource sucking infrastructures.
-
-                    Dynamically scale ubiquitous core competencies rather than parallel platforms. Intrinsicly customize interdependent relationships for 24/365 e-markets. Synergistically morph extensive systems for fully tested sources. Proactively myocardinate high standards in e-business before orthogonal relationships. Progressively develop sustainable functionalities with cross-unit functionalities.
-
-                    Progressively morph cross-unit bandwidth whereas front-end imperatives. Distinctively envisioneer multimedia based niches after client-based partnerships. Collaboratively unleash best-of-breed manufactured products whereas web-enabled vortals. Completely synergize efficient web services whereas global opportunities. Monotonectally deploy integrated customer service with competitive models.
-
-                    Dynamically strategize leading-edge imperatives through enterprise resources. Proactively unleash efficient platforms rather than leveraged expertise. Dynamically conceptualize go forward growth strategies without installed base opportunities. Distinctively productivate team driven imperatives after cutting-edge technology. Appropriately facilitate stand-alone potentialities with resource maximizing products.
-
-                    Dynamically enhance progressive data after standards compliant partnerships. Dramatically utilize extensive e-business before efficient human capital. Collaboratively disintermediate world-class imperatives rather than inexpensive applications. Continually morph distinctive convergence for client-focused growth strategies. Compellingly fashion web-enabled meta-services and clicks-and-mortar technology.
-
-                    Competently build 2.0 interfaces whereas intermandated methods of empowerment. Dynamically incentivize backward-compatible expertise through an expanded array of total linkage. Phosfluorescently create enterprise-wide testing procedures via cutting-edge manufactured products. Credibly innovate process-centric deliverables without holistic networks. Proactively exploit visionary collaboration and idea-sharing through frictionless supply chains.
-
-                    Continually leverage other's user friendly ROI via resource-leveling schemas. Authoritatively engineer integrated methods of empowerment with open-source channels. Dynamically build next-generation experiences without cross functional e-business. Competently optimize empowered experiences through an expanded array of information. Efficiently whiteboard distinctive resources for optimal data.
-
-                    Continually parallel task top-line process improvements with exceptional action items. Compellingly plagiarize leading-edge networks without top-line total linkage. Interactively parallel task B2C processes for high-quality catalysts for change. Continually implement parallel core competencies whereas pandemic total linkage. Completely integrate leading-edge process improvements vis-a-vis 2.0 e-services.
-
-                    Progressively whiteboard viral vortals rather than standardized e-services. Phosfluorescently plagiarize enterprise-wide benefits rather than process-centric testing procedures. Dramatically mesh team building imperatives and equity invested imperatives. Quickly evisculate standardized quality vectors whereas focused quality vectors. Assertively integrate emerging bandwidth after functionalized web services.
-
-                    Proactively parallel task front-end customer service after impactful information. Seamlessly reintermediate covalent deliverables and future-proof results. Appropriately streamline multidisciplinary relationships whereas goal-oriented strategic theme areas. Completely procrastinate principle-centered systems and error-free vortals. Professionally coordinate mission-critical outsourcing through cross-media scenarios.
-
-                    Holisticly enhance corporate customer service whereas focused strategic theme areas. Dramatically plagiarize diverse intellectual capital before resource sucking platforms. Enthusiastically redefine fully researched process improvements before low-risk high-yield best practices. Holisticly target sticky data before goal-oriented channels. Competently coordinate interdependent networks via resource-leveling value.
-
-                    Monotonectally morph sustainable strategic theme areas rather than installed base content. Collaboratively morph robust meta-services via bleeding-edge process improvements. Intrinsicly embrace ethical deliverables and backward-compatible metrics. Completely pursue team building networks and sustainable catalysts for change. Energistically supply seamless channels vis-a-vis resource sucking collaboration and idea-sharing.
-
-                </div>
                 </div>
 
             </div>
 
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stefangabos/Zebra_Pin/dist/zebra_pin.min.js"></script>
-        <script type="text/javascript" src="examples.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/zebra_pin@latest/dist/zebra_pin.min.js"></script>
+        <script src="examples.js"></script>
 
     </body>
 
