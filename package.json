@@ -17,14 +17,13 @@
     "email": "contact@stefangabos.ro"
   },
   "keywords": [
+    "pinned-elements",
+    "sticky-elements",
     "fixed",
+    "pinned",
     "sticky",
-    "pin",
-    "scrolling",
-    "position",
-    "floating",
-    "navigation",
-    "sidebar"
+    "sticky-sidebar",
+    "sticky-header"
   ],
   "license": "LGPL-3.0",
   "devDependencies": {
