@@ -2,6 +2,19 @@ body {
     font-family: Tahoma, Helvetica, Arial, sans-serif;
 }
 
+.top {
+    border-bottom: 1px solid #eee;
+    display: block;
+    margin-bottom: 33px;
+}
+
+.top a {
+    background: #FFF;
+    padding-right: 10px;
+    position: relative;
+    top: 8px;
+}
+
 .syntaxhighlighter {
     padding: .5em 0;
 }
@@ -38,10 +51,4 @@ body {
 .sticky-navigation-callbacks li:nth-child(4) a,
 .sticky-navigation-nocallbacks.Zebra_Pin li:nth-child(4) a {
     color: #FFF;
-}
-
-.top {
-    position: relative;
-    margin-left: 10px;
-    top: -2px;
 }
