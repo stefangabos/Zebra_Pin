@@ -1,8 +1,8 @@
 <img src="https://raw.githubusercontent.com/stefangabos/zebrajs/master/docs/images/logo.png" alt="zebrajs" align="right">
 
-# Zebra Pin &nbsp;[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Zebra%20Pin%20-%20a%20lightweight%20and%20adaptive%20jQuery%20plugin%20for%20pinning%20elements%20to%20the%20page%20or%20to%20container%20elementsurl=https://github.com/stefangabos/Zebra_Pin&via=stefangabos&hashtags=jquery,pin,sticky,pinned)
+# Zebra Pin &nbsp;[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=A+lightweight+jQuery+plugin+for+creating+sticky+elements+pinned+to+the+page+or+to+a+container+element&url=https://github.com/stefangabos/Zebra_Pin&via=stefangabos&hashtags=jquery,javascript,pin,sticky,pinned)
 
-*A lightweight jQuery plugin for creating sticky elements pinned to the page or to a container element*
+*A lightweight and adaptive jQuery plugin for creating sticky elements pinned to the page or to a container element*
 
 [![npm](https://img.shields.io/npm/v/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin) [![Total](https://img.shields.io/npm/dt/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin) [![Monthly](https://img.shields.io/npm/dm/zebra_pin.svg)](https://www.npmjs.com/package/zebra_pin) [![](https://data.jsdelivr.com/v1/package/npm/zebra_pin/badge?style=rounded)](https://www.jsdelivr.com/package/npm/zebra_pin) [![License](https://img.shields.io/npm/l/zebra_pin.svg)](https://github.com/stefangabos/Zebra_Pin/blob/master/LICENSE.md)
 
@@ -21,8 +21,17 @@ Works in pretty much any browser - Firefox, Chrome, Safari, Edge, Opera and Inte
  - elements can be pinned inside a container element, not just to the page
  - pinned elements are added a user-defined CSS class so you can adjust their looks when pinned
  - custom events are fired when elements become pinned/unpinned giving you even more power for customizing the result
- - it is really small – it weights 2.5KB minified (~800 bytes gzipped) offering a very good ratio of features per used bytes
- - it's cross-browser – works in every major browser and IE7+
+ - it is really small - it weights 2.5KB minified (~800 bytes gzipped) offering a very good ratio of features per used bytes
+ - it's cross-browser - works in every major browser and IE7+
+
+## 🎂 Support the development of this project
+
+Your support means a lot and it keeps me motivated to keep working on open source projects.<br>
+If you like this project please ⭐ it by clicking on the star button at the top of the page.<br>
+If you are feeling generous, you can buy me a coffee by donating through PayPal, or you can become a sponsor.<br>
+Either way - **Thank you!** 🎉
+
+[<img src="https://img.shields.io/github/stars/stefangabos/zebra_pin?color=green&label=star%20it%20on%20GitHub" width="132" height="20" alt="Star it on GitHub">](https://github.com/stefangabos/Zebra_Pin) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K8HEUNMPV65R4) [<img src="https://img.shields.io/badge/-Sponsor-fafbfc?logo=GitHub%20Sponsors">](https://github.com/sponsors/stefangabos)
 
 ## Demo
 
@@ -236,10 +245,6 @@ var zp = new $.Zebra_Pin($('#element'), {
 // update also the boundaries
 zp.update();
 ```
-
-## Support the development of this project
-
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K8HEUNMPV65R4)
 
 ## Sponsors
 
