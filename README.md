@@ -62,8 +62,8 @@ bower install zebra_pin --save
 First, load the latest version of jQuery from a CDN and provide a fallback to a local source, like:
 
 ```html
-<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-<script>window.jQuery || document.write('<script src="path/to/jquery-3.5.0.js"><\/script>')</script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script>window.jQuery || document.write('<script src="path/to/local/jquery-3.7.0.js"><\/script>')</script>
 ```
 
 Load the Zebra Pin jQuery plugin:
@@ -81,7 +81,7 @@ Alternatively, you can load Zebra Pin from [JSDelivr CDN](https://www.jsdelivr.c
 
 <!-- for a specific version -->
 <script
-    src="https://cdn.jsdelivr.net/npm/zebra_pin@2.0.0/dist/zebra_pin.min.js"></script>
+    src="https://cdn.jsdelivr.net/npm/zebra_pin@3.0.0/dist/zebra_pin.min.js"></script>
 
 <!-- replacing "min" with "src" will serve you the non-compressed version -->
 ```
