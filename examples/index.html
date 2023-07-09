@@ -346,7 +346,7 @@
                         new Zebra_Tooltip($('.sticky-navigation-callbacks'), {
 
                             // when pinning
-                            onPin: function(scroll, $element) {
+                            onPin: function($element) {
 
                                 // cache selector
                                 var items = $('li', $element);
@@ -366,7 +366,7 @@
                             },
 
                             // when un-pinning
-                            onUnpin: function(scroll, $element) {
+                            onUnpin: function($element) {
 
                                 // cache selector
                                 var items = $('li', $element);
