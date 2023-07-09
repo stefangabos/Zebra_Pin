@@ -103,7 +103,7 @@
                 plugin.update();
 
                 // on window resize
-                $window.on('resize', function() {
+                $window.on('resize.Zebra_Pin_' + uniqueid, function() {
 
                     // update elements' position
                     plugin.update();
@@ -115,11 +115,11 @@
             /**
              *  Pins an element
              *
-             *  @param  $element    The element to pin
+             *  @param  jQuery  $element    The element to pin
              *
              *  @return void
              */
-            _pin_element = function($element) {
+            _pin = function($element) {
 
                 // create a clone of the element, insert it right after the original element and make it invisible
                 // we do this so that we don't break the layout by removing the pinned element from the DOM
@@ -134,6 +134,22 @@
 
                     // execute the callback function and pass as argument the element that was pinned
                     plugin.settings.onPin($element);
+
+            },
+
+            _unpin = function($element) {
+
+                // remove the clone element
+                $element.next('.Zebra_Pin_Clone').remove();
+
+                // reset the element's original "style" attribute and remove the class indicating that the element is pinned
+                $element.attr('style', $element.data('zt_previous_style') || '').removeClass(plugin.settings.class_name);
+
+                // if a callback function exists for when unpinning an element
+                if (plugin.settings.onUnpin && typeof plugin.settings.onUnpin === 'function')
+
+                    // execute the callback function and pass as argument the element that was unpinned
+                    plugin.settings.onUnpin($element);
 
             };
 
@@ -283,7 +299,7 @@
                             if (!$element.hasClass('Zebra_Pin_Contained'))
 
                                 // pin the element
-                                _pin_element($element);
+                                _pin($element);
 
                             // if the user is now scrolling upwards and a "contained" element's bottom is *not* touching
                             // its container's bottom anymore
@@ -310,22 +326,12 @@
                             // and the element was pinned
                             $element.hasClass(plugin.settings.class_name)
 
-                        ) {
+                        )
 
-                            // remove the clone element
-                            $element.next('.Zebra_Pin_Clone').remove();
-
-                            // reset the element's original "style" attribute and remove the class indicating that the element is pinned
-                            $element.attr('style', $element.data('zt_previous_style') || '').removeClass(plugin.settings.class_name);
-
-                            // if a callback function exists for when unpinning an element
-                            if (plugin.settings.onUnpin && typeof plugin.settings.onUnpin === 'function')
-
-                                // execute the callback function and pass as argument the element that was unpinned
-                                plugin.settings.onUnpin($element);
+                            _unpin($element);
 
                         // else if
-                        } else if (
+                        else if (
 
                             // the element needs to be contained inside the parent element's boundaries
                             plugin.settings.contain &&
@@ -343,7 +349,7 @@
                             if (!$element.hasClass(plugin.settings.class_name))
 
                                 // pin the element
-                                _pin_element($element);
+                                _pin($element);
 
                             // set element's CSS properties
                             $element.css({
@@ -363,6 +369,37 @@
                     $window.trigger('scroll' + proxy);
 
                 }
+
+            });
+
+        };
+
+        /**
+         *  Destroys the plugin and removes the pinning functionality from the elements the plugin was attached to.
+         *
+         *  <code>
+         *  // initialize the plugin
+         *  var zp = new Zebra_Pin($('#my_pinned_element'));
+         *
+         *  // destroy the plugin, removing the functionality from the elements it was associated with
+         *  zp.destroy();
+         *  </code>
+         *
+         *  @return void
+         */
+        plugin.destroy = function() {
+
+            // remove the event handler
+            $window.off('resize.Zebra_Pin_' + uniqueid);
+
+            // iterate over the elements the plugin is attached to
+            elements.each(function(index) {
+
+                // remove the event handler
+                $window.off('scroll.Zebra_Pin_' + uniqueid + '_' + index);
+
+                // restore any pinned elements
+                _unpin($(this));
 
             });
 
