@@ -200,24 +200,14 @@ $(document).ready(function() {
         <td valign="top"><code>onPin</code></td>
         <td valign="top">
             Callback function to be executed when an element becomes pinned<br>
-            The callback function receives 3 arguments:<br><br>
-            <ul>
-                <li>the vertical position, relative to the document, where the event occurred</li>
-                <li>a reference to the pinned element</li>
-                <li>the index of the element - if the plugin was attached to multiple elements (0 based)</li>
-            </ul>
+            The callback function receives as argument the element that was pinned<br><br>
         </td>
     </tr>
     <tr>
         <td valign="top"><code>onUnpin</code></td>
         <td valign="top">
             Callback function to be executed when an element becomes unpinned (reverts to its original state)<br>
-            The callback function receives 3 arguments:<br><br>
-            <ul>
-                <li>the vertical position, relative to the document, where the event occurred</li>
-                <li>a reference to the unpinned element</li>
-                <li>the index of the element - if the plugin was attached to multiple elements (0 based)</li>
-            </ul>
+            The callback function receives as argument the element that was unpinned<br><br>
         </td>
     </tr>
     </tbody>
@@ -244,6 +234,18 @@ var zp = new $.Zebra_Pin($('#element'), {
 // if the parent element's height changes
 // update also the boundaries
 zp.update();
+```
+
+### `destroy()`
+
+Destroys the plugin and removes the pinning functionality from the elements the plugin was attached to.
+
+```javascript
+// initialize the plugin
+var zp = new $.Zebra_Pin($('#element'));
+
+// destroy the plugin, removing the functionality from the elements it was associated with
+zp.destroy();
 ```
 
 ## Sponsors

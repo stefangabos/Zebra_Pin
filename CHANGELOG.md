@@ -1,3 +1,8 @@
+## version 3.0.0 (July 09, 2023)
+
+ - added a `destroy` method
+ - the `onPin` and `onUnpin` methods now return a single argument: the element for which the event occurred
+
 ## version 2.0.0 (July 23, 2018)
 
 - pinned elements are not taken out of DOM when becoming pinned; instead, an invisible clone element is created so that layout doesn't break.
