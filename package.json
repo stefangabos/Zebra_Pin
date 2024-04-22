@@ -10,7 +10,7 @@
   "description": "A lightweight jQuery plugin for creating sticky elements pinned to the page or to a container element",
   "repository": {
     "type": "git",
-    "url": "https://github.com/stefangabos/Zebra_Pin.git"
+    "url": "git+https://github.com/stefangabos/Zebra_Pin.git"
   },
   "bugs": {
     "url": "https://github.com/stefangabos/Zebra_Pin/issues",
