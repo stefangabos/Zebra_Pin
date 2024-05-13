@@ -21,8 +21,8 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Pin/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    3.0.0 (last revision: July 09, 2023)
- *  @copyright  (c) 2013 - 2023 Stefan Gabos
+ *  @version    3.0.1 (last revision: May 13, 2024)
+ *  @copyright  (c) 2013 - 2024 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pin
  */
@@ -33,7 +33,7 @@
     $.Zebra_Pin = function(elements, options) {
 
         // so you can tell the version number even if all you have is the minified source
-        this.version = '3.0.0';
+        this.version = '3.0.1';
 
         var defaults = {
 
