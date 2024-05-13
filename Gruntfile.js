@@ -7,9 +7,6 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
-        // load packages.json
-        pkg: grunt.file.readJSON('package.json'),
-
         /***************************************************************************************************************
          *  NOTIFY
          *  https://github.com/dylang/grunt-notify
@@ -28,9 +25,6 @@ module.exports = function(grunt) {
          *  http://eslint.org/docs/rules/
          **************************************************************************************************************/
         'eslint' : {
-            options: {
-                overrideConfigFile: 'eslint.json'
-            },
             src: ['src/zebra_pin.src.js']
         },
 
