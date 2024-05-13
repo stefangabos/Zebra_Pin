@@ -1,3 +1,7 @@
+## version 3.0.1 (May 13, 2024)
+
+- minor maintenance release
+
 ## version 3.0.0 (July 09, 2023)
 
  - added a `destroy` method
