@@ -50,13 +50,6 @@ Zebra Pin is available as a [npm package](https://www.npmjs.com/package/zebra_pi
 npm install zebra_pin --save
 ```
 
-Zebra Pin is also available as a [Bower package](https://bower.io/). To install it use:
-
-```bash
-# the "--save" argument adds the plugin as a dependency in bower.json
-bower install zebra_pin --save
-```
-
 ## How to use
 
 First, load the latest version of jQuery from a CDN and provide a fallback to a local source, like:
