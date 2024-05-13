@@ -1,6 +1,6 @@
 {
   "name": "zebra_pin",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "main": "dist/zebra_pin.min.js",
   "homepage": "https://github.com/stefangabos/Zebra_Pin",
   "author": {
