@@ -2,7 +2,7 @@
 
 module.exports = function(grunt) {
 
-    // show time spent on each taks
+    // show time spent on each task
     require('time-grunt')(grunt);
 
     grunt.initConfig({
