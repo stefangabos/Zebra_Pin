@@ -33,7 +33,7 @@
     "grunt-contrib-jshint": "^3.2.0",
     "grunt-contrib-uglify": "^5.2.2",
     "grunt-contrib-watch": "*",
-    "grunt-eslint": "^25.0.0",
+    "grunt-eslint": "^26.0.0",
     "grunt-newer": "*",
     "grunt-notify": "*",
     "time-grunt": "^2.0.0"
