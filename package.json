@@ -1,6 +1,9 @@
 {
   "name": "zebra_pin",
   "version": "3.0.1",
+  "scripts": {
+    "audit": "npm audit --omit=dev"
+  },
   "main": "dist/zebra_pin.min.js",
   "homepage": "https://github.com/stefangabos/Zebra_Pin",
   "author": {
